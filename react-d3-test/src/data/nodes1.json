@@ -1,0 +1,32 @@
+{
+    "nodes": [
+        {
+            "id": 1,
+            "name": "AI", 
+            "size": 10
+        }, 
+        {
+            "id": 2,
+            "name": "Digital Twins", 
+            "size": 2
+        }, 
+        {
+            "id": 3,
+            "name": "Blockchain", 
+            "size": 4
+        }, {
+            "id": 4,
+            "name": "Cloud Computing", 
+            "size": 5
+        }, 
+        {
+            "id": 5,
+            "name": "Quantum Computing", 
+            "size": 5
+        }, {
+            "id": 6,
+            "name": "Internt of Things", 
+            "size": 3
+        }
+    ]
+}
