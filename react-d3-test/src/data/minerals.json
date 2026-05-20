@@ -1,0 +1,9 @@
+{
+    "minerals" : [
+        {
+            "name" : "Copper", 
+            "datafile" : "test.json", 
+            "description" : "description of copper"
+        }
+    ]
+}

@@ -3,30 +3,41 @@
         {
             "id": 1,
             "name": "AI", 
-            "size": 10
+            "2025": 539, 
+            "growth_rate": 1.306
         }, 
         {
             "id": 2,
             "name": "Digital Twins", 
-            "size": 2
+            "2025": 21.14, 
+            "growth_rate": 1.479
         }, 
         {
             "id": 3,
             "name": "Blockchain", 
-            "size": 4
+            "2025": 41.15, 
+            "growth_rate": 1.504
         }, {
             "id": 4,
             "name": "Cloud Computing", 
-            "size": 5
+            "2025": 943, 
+            "growth_rate": 1.16
         }, 
         {
             "id": 5,
             "name": "Quantum Computing", 
-            "size": 5
+            "2025": 1.7, 
+            "growth_rate": 1.205
         }, {
             "id": 6,
             "name": "Internt of Things", 
-            "size": 3
+            "2025": 1596, 
+            "growth_rate": 1.089
+        }, {
+            "id": 7,
+            "name": "Robotics", 
+            "2025": 53.1, 
+            "growth_rate": 1.176
         }
     ]
 }
