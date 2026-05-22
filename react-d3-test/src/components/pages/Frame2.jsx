@@ -2,6 +2,22 @@ import { useEffect, useState } from "react";
 import "../../styles/frame.css";
 
 export default function Frame2() {
+  const [subframeNum, setSubframe] = useState("data_centers");
+  function SelectedSubframe() {
+    switch (subframeNum) {
+      case "data_centers":
+        return <p>This is about data centers</p>;
+      case "energy":
+        return <p>This is about energy</p>;
+      case "cabling":
+        return <p>This is about cabling</p>;
+      case "chips":
+        return <p>This is about chips</p>;
+      default:
+        return <p>Hello there 5</p>;
+    }
+  }
+
   return (
     <div className="frame">
       <h1>
@@ -15,19 +31,23 @@ export default function Frame2() {
             invested in as well, all the way from raw material extraction to
             data center construction.
           </p>
-          <div>
-            <p>Data Centers</p>
-            <p>Energy Infrastructure</p>
-            <p>Cabling Infrastructure</p>
-            <p>Chips Manufacturing</p>
+          <div className="smallRow">
+            <p onClick={() => setSubframe("energy")} id="energy">Energy Infrastructure</p>
+            <p onClick={() => setSubframe("data_centers")} id="data_centers">Data Centers</p>
 
+            <div>
+              <p onClick={() => setSubframe("cabling")} id="cabling">
+                Cabling Infrastructure
+              </p>
+              <p onClick={() => setSubframe("chips")} id="chips">Chips Manufacturing</p>
+            </div>
           </div>
         </div>
         <div className="bigColumn">
-            <p>This is a test </p>
+          <SelectedSubframe />
         </div>
       </div>
-      <span>Raw materials</span>
+      <div className="rawMaterialsButton"><p>Raw materials</p></div>
     </div>
   );
 }

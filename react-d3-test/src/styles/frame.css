@@ -1,7 +1,7 @@
 .frame {
     position: absolute; 
-    height: 60vh;
-    width: 60vw;
+    height: 70vh;
+    width: 80vw;
     padding: 1rem; 
     top: 50%; 
     left: 50%; 
@@ -12,20 +12,55 @@
 .flexParent {
     display: flex; 
     align-items: stretch;
+    height: 50vh;
 
 }
 
 .smallColumn {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     padding: 1rem;
-    width: 20%; 
+    max-width: 30%; 
 }
 
 .bigColumn {
     padding: 1rem;
+    margin: 1rem;
     background-color: aqua;
-    width: 80%;
+    width: stretch;
     
 }
 
+.smallRow {
+    display: inline-flex;
+    align-items: bottom;
+}
+
+.smallRow p{
+    margin: 0.5rem;
+    padding: 1rem;
+    background-color: red;
+    border-radius: 0.3rem;
+
+    cursor: pointer;
+}
+
+.rawMaterialsButton {
+    background-color: red;
+    width: stretch; 
+    padding: 0.3rem 1rem;
+    margin: 1rem 0rem;
+    border-radius: 0.3rem;
+}
+
+.flexRow {
+    display: flex; 
+    align-items: left;
+}
+
+.flexRow p{
+    margin:  0 1rem 0 0;
+    background-color: lightcoral;
+    padding: 1rem;
+}

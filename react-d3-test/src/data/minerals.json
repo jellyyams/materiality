@@ -1,9 +1,32 @@
 {
     "minerals" : [
         {
+            "name" : "All Minerals", 
+            "description" : "description of all minerals" 
+        }, 
+        {
             "name" : "Copper", 
-            "datafile" : "test.json", 
-            "description" : "description of copper"
+            "description" : "description of copper" 
+        }, 
+        {
+            "name" : "Cobalt", 
+            "description" : "description of cobalt" 
+        }, 
+        {
+            "name" : "Lithium", 
+            "description" : "description of lithium" 
+        }, 
+        {
+            "name" : "Nickel", 
+            "description" : "description of nickel" 
+        }, 
+        {
+            "name" : "REE", 
+            "description" : "description of REE" 
+        }, 
+        {
+            "name" : "Graphite", 
+            "description" : "description of graphite" 
         }
     ]
 }

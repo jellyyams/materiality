@@ -2,14 +2,17 @@ import * as d3 from "d3";
 import { useEffect, useRef } from "react";
 import nodesData from "../../data/technologies.json";
 
-const Graph = () => {
+const TechnologiesSVG = (props) => {
   const ref = useRef();
-  const width = 800;
+
+  const width = props.parentWidth;
   const height = 500;
   const base_r = 50;
   const yearStart = 2025;
 
   useEffect(() => {
+    if (!ref.current || !width) return;
+    
     const svg = d3.select(ref.current);
 
     let node = svg
@@ -107,8 +110,8 @@ const Graph = () => {
       .attr("stroke-width", (d) => d.type === "visible" ? 3 : 6)
       .attr("opacity", (d) => d.type === "visible" ? 1 : 0)
       .attr("cursor", "pointer")
-      .on("click", (e) => {
-        handleClickorDrag(e);
+      .on("click", function (event) {
+        handleClickorDrag(event);
       })
       .on("mouseover", (e) => {
         d3.select(this).raise();
@@ -154,10 +157,11 @@ const Graph = () => {
 
     // Drag behavior
 
-    const handleClickorDrag = (e) => {
-      // Convert page coordinates to SVG coordinates
-      const svgRect = ref.current.getBoundingClientRect();
-      const svgX = e.clientX - svgRect.left;
+    const handleClickorDrag = (event) => {
+      if (!ref.current) return;
+      
+      // Use d3.pointer to get coordinates relative to the SVG element
+      const [svgX] = d3.pointer(event, ref.current);
       
       const x = Math.max(
         sliderPadding,
@@ -165,7 +169,6 @@ const Graph = () => {
       );
 
       console.log("SVG X:", x)
-      console.log("Page X:", e.clientX)
       currentYear = Math.round(yearScale.invert(x));
       console.log("Year:", currentYear)
 
@@ -195,4 +198,4 @@ const Graph = () => {
   return <svg id="graph" width={width} height={height} ref={ref}></svg>;
 };
 
-export default Graph;
+export default TechnologiesSVG;

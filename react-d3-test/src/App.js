@@ -6,9 +6,9 @@ import Frame4 from "./components/pages/Frame4";
 import "./App.css";
 
 function App() {
-  const [frame_num, setFrame] = useState(0);
+  const [frameNum, setFrame] = useState(0);
   function handleClick() {
-    if (frame_num > 3) {
+    if (frameNum > 3) {
       setFrame(0);
     } else {
       setFrame((f) => f + 1);
@@ -16,7 +16,7 @@ function App() {
   }
 
   function SelectedFrame() {
-    switch (frame_num) {
+    switch (frameNum) {
       case 0:
         return <Frame1 />;
       case 1:
@@ -34,7 +34,7 @@ function App() {
 
   return (
     <div className="App">
-      <button onClick={handleClick}>Frame number: {frame_num} </button>
+      <button onClick={handleClick}>Frame number: {frameNum} </button>
       <div>
         <SelectedFrame />
       </div>
