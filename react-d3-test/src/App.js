@@ -3,6 +3,7 @@ import Frame1 from "./components/pages/Frame1";
 import Frame2 from "./components/pages/Frame2";
 import Frame3 from "./components/pages/Frame3";
 import Frame4 from "./components/pages/Frame4";
+import LoopDiagramSVG from "./components/d3_components/LoopDiagramSVG";
 import "./App.css";
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
       case 3:
         return <Frame4 />;
       case 4:
-        return <p>Case 4</p>;
+        return <LoopDiagramSVG parentWidth = {1000} height = {700}/>;
       default:
         return <Frame1 />;
     }

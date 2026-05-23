@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 
 const MineralsLineSVG = (props) => {
   const ref = useRef();
-  const filename = "/minerals.csv";
+  const filename = "/data/minerals.csv";
 
   const width = props.parentWidth;
   const height = 500;

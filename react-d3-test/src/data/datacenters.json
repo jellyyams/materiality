@@ -1,0 +1,26 @@
+{
+    "datacenters" : [
+        {
+            "id": 1,
+            "name": "American", 
+            "full_name" : "American",
+            "2025": 49, 
+            "growth_rate": 1.17
+        }, 
+        {
+            "id": 2,
+            "name": "EMEA", 
+            "full_name" : "Europe, Middle East, Africa",
+            "2025": 21, 
+            "growth_rate": 1.1
+        }, 
+        {
+            "id": 3,
+            "name": "APAC", 
+            "full_name" : "Asia-Pacific",
+            "2025": 32, 
+            "growth_rate": 1.12
+        }
+       
+    ]
+}

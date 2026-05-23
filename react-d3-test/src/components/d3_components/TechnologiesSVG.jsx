@@ -9,10 +9,11 @@ const TechnologiesSVG = (props) => {
   const height = 500;
   const base_r = 50;
   const yearStart = 2025;
+  const factor = 3;
 
   useEffect(() => {
     if (!ref.current || !width) return;
-    
+
     const svg = d3.select(ref.current);
 
     let node = svg
@@ -45,7 +46,7 @@ const TechnologiesSVG = (props) => {
         .join("circle")
         .attr("r", (d) => {
           return d.type === "marketsize"
-            ? d.data["2025"] / (2 * Math.PI * 2)
+            ? d.data["2025"] / (2 * Math.PI * factor)
             : base_r;
         })
         .style("fill", (d) => (d.type === "body" ? "#69b3a2" : "none"))
@@ -99,7 +100,7 @@ const TechnologiesSVG = (props) => {
     // Draw slider track
     sliderGroup
       .selectAll("line.track")
-      .data([{ type: "visible" }, {type:"invisible"}])
+      .data([{ type: "visible" }, { type: "invisible" }])
       .join("line")
       .attr("class", "track")
       .attr("x1", sliderPadding)
@@ -107,8 +108,8 @@ const TechnologiesSVG = (props) => {
       .attr("y1", sliderY)
       .attr("y2", sliderY)
       .attr("stroke", "#ccc")
-      .attr("stroke-width", (d) => d.type === "visible" ? 3 : 6)
-      .attr("opacity", (d) => d.type === "visible" ? 1 : 0)
+      .attr("stroke-width", (d) => (d.type === "visible" ? 3 : 6))
+      .attr("opacity", (d) => (d.type === "visible" ? 1 : 0))
       .attr("cursor", "pointer")
       .on("click", function (event) {
         handleClickorDrag(event);
@@ -151,26 +152,27 @@ const TechnologiesSVG = (props) => {
       .attr("class", "handle")
       .attr("cx", yearScale(currentYear))
       .attr("cy", sliderY)
-      .attr("r", 8)
+      .attr("r", 10)
       .attr("fill", "#69b3a2")
-      .attr("cursor", "pointer");
+      .attr("cursor", "pointer")
+      .on("mouseover", (e) => {
+        d3.select(this).raise();
+      });
 
     // Drag behavior
 
     const handleClickorDrag = (event) => {
       if (!ref.current) return;
-      
+
       // Use d3.pointer to get coordinates relative to the SVG element
       const [svgX] = d3.pointer(event, ref.current);
-      
+
       const x = Math.max(
         sliderPadding,
         Math.min(svgX, sliderPadding + sliderWidth),
       );
 
-      console.log("SVG X:", x)
       currentYear = Math.round(yearScale.invert(x));
-      console.log("Year:", currentYear)
 
       handle.attr("cx", yearScale(currentYear));
       svg
@@ -178,8 +180,9 @@ const TechnologiesSVG = (props) => {
         .selectAll("circle")
         .attr("r", (d) => {
           return d.type === "marketsize"
-            ? (d.data["2025"] / (2 * Math.PI * 2)) *
-                d.data["growth_rate"] ** (currentYear - yearStart)
+            ? (d.data["2025"] *
+                (d.data["growth_rate"] ** (currentYear - yearStart)) )/
+                (2 * Math.PI * 2)
             : base_r;
         });
     };
