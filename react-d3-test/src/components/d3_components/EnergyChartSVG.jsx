@@ -6,9 +6,10 @@ const EnergyChartSVG = (props) => {
   const width = props.parentWidth;
   const height = props.height;
   const marginTop = 30;
-  const marginBottom = 40;
-  const marginLeft = 80;
+  const marginBottom = 60;
+  const marginLeft = 50;
   const marginRight = 30;
+  const sliderPadding = 50;
 
   const filename = "/data/energy.csv";
 
@@ -19,17 +20,65 @@ const EnergyChartSVG = (props) => {
     const validYears = [2023, 2024, 2030, 2035];
     const svg = d3.select(ref.current);
 
+    svg
+      .selectAll("text.heading")
+      .data([""])
+      .join("text")
+      .attr("class", "heading")
+      .attr("text-anchor", "start")
+      .attr("transform", `translate(${sliderPadding - 15}, ${height - 5})`)
+      .attr("fill", "var(--main-light)")
+      .text("Global Energy Consumption by Data Centers");
+
     d3.csv(filename).then(function (data) {
-      let filteredData = data
-        .filter((d) => +d.Year === currentYear)
-        .filter((d) => d.Type !== "Total");
-      // Group filtered data by Type and sum TWh values
-      let grouped = d3.group(filteredData, (d) => d.Type);
+      let filteredData = data.filter((d) => d.Type !== "Total");
+      // Group filtered data by Type and Year
+      let grouped = d3.group(
+        filteredData,
+        (d) => d.Type,
+        (d) => d.Year,
+      );
       console.log("grouped", grouped);
 
-      let nodes_filtered = [];
-      let node = svg.selectAll("g.node");
-      console.log(data);
+      // Create nodes_filtered with values stored by year and type
+      let nodes_filtered = Array.from(grouped, ([type, yearMap]) => {
+        const valuesByYear = {};
+        yearMap.forEach((yearData, year) => {
+          valuesByYear[year] = d3.sum(yearData, (d) => +d.TWh);
+        });
+        return {
+          id: type,
+          name: type,
+          valuesByYear: valuesByYear,
+          value: valuesByYear[currentYear] || 0, // Set initial value for current year
+        };
+      });
+
+      let node = svg
+        .selectAll("g.node")
+        .data(nodes_filtered, (d) => d.id)
+        .join("g")
+        .attr("class", "node");
+
+      node
+        .selectAll("circle")
+        .data(nodes_filtered)
+        .join("circle")
+        .attr("r", (d) => {
+          return d.value / (Math.PI * 1.8);
+        })
+        .attr("fill", "var(--accent-dark)")
+        .style("opacity", 1);
+
+      node
+        .selectAll("text")
+        .data((d) => [d])
+        .join("text")
+        .attr("text-anchor", "middle")
+        .attr("dy", "0.3em")
+        .attr("font-size", "12px")
+        .attr("fill", "var(--main-light)")
+        .text((d) => `${d.name}, ${d.value} TWh`);
 
       // Create force simulation
       const simulation = d3
@@ -53,43 +102,7 @@ const EnergyChartSVG = (props) => {
 
       const drawBubbles = () => {
         // Convert Map to array of objects using TWh values
-        nodes_filtered = Array.from(grouped, ([type, values]) => ({
-          id: type,
-          name: type,
-          value: d3.sum(values, (d) => +d.TWh), // Sum the TWh values for this type
-        }));
-        console.log(nodes_filtered)
 
-        // Create group for each node
-        let updated_nodes = svg
-          .selectAll("g.node")
-          .data(nodes_filtered, (d) => d.id)
-          .join(
-            function (enter) {
-              node = enter.append("g").attr("class", "node");
-              node
-                .append("circle")
-                .attr("r", (d) => {
-                    console.log("entering")
-                    console.log(d)
-                  return d.value / (Math.PI * 1.8);
-                })
-                .attr("fill", "steelblue")
-                .attr("opacity", 0.7);
-              node
-                .append("text")
-                .attr("text-anchor", "middle")
-                .attr("dy", "0.3em")
-                .attr("font-size", "12px")
-                .text((d) => d.name);
-            }, 
-            function(update) {
-                update.selectAll("circle").attr("r", d => {return d.value / (Math.PI * 1.8);})
-                node = node.merge(update)
-            }
-          );
-
-        // Update circles with new sizes
         node
           .selectAll("circle")
           .data((d) => [d])
@@ -97,16 +110,23 @@ const EnergyChartSVG = (props) => {
           .attr("r", (d) => {
             console.log(d);
             return d.value / (Math.PI * 1.8);
-          })
-          .attr("fill", "steelblue")
-          .attr("opacity", 0.7);
+          });
+
+        node
+          .selectAll("text")
+          .data((d) => [d])
+          .join("text")
+          .attr("text-anchor", "middle")
+          .attr("dy", "0.3em")
+          .attr("font-size", "12px")
+          .text((d) => `${d.name}, ${d.value} TWh`);
 
         // Update collide force with new radii
-        simulation
-          .force("collide", d3.forceCollide((d) => d.value / (Math.PI * 1.8) + 5).strength(0.3));
+        simulation.force(
+          "collide",
+          d3.forceCollide((d) => d.value / (Math.PI * 1.8) + 5).strength(0.3),
+        );
 
-        // Update simulation with new nodes without restarting
-        simulation.nodes(nodes_filtered);
         // Use a gentle reheat instead of full restart
         simulation.alpha(0.1).restart();
       };
@@ -114,7 +134,7 @@ const EnergyChartSVG = (props) => {
       // Draw initial bubbles
       drawBubbles();
 
-      const sliderPadding = 20;
+      
       const sliderWidth = width - 2 * sliderPadding;
       const sliderY = height - marginBottom;
 
@@ -141,9 +161,8 @@ const EnergyChartSVG = (props) => {
         .attr("x2", sliderPadding + sliderWidth)
         .attr("y1", sliderY)
         .attr("y2", sliderY)
-        .attr("stroke", "#ccc")
+        .attr("stroke", "var(--main-light)")
         .attr("stroke-width", (d) => (d.type === "visible" ? 3 : 6))
-        .attr("opacity", (d) => (d.type === "visible" ? 1 : 0))
         .attr("cursor", "pointer")
         .on("click", function (event) {
           handleClickorDrag(event);
@@ -161,7 +180,7 @@ const EnergyChartSVG = (props) => {
         .attr("x2", (year) => yearScale(year))
         .attr("y1", sliderY - 5)
         .attr("y2", sliderY + 5)
-        .attr("stroke", "#999")
+        .attr("stroke", "var(--main-light)")
         .attr("stroke-width", 1);
 
       // Draw year labels
@@ -170,6 +189,8 @@ const EnergyChartSVG = (props) => {
         .data(validYears, (d) => d)
         .join("text")
         .attr("class", "year-label")
+        .style("font-size", 12)
+        .attr("fill", "var(--main-light)")
         .attr("text-anchor", "end")
         .attr("transform", (d) => {
           return `translate(${yearScale(d)}, ${sliderY + 8}) rotate(-45)`;
@@ -185,7 +206,7 @@ const EnergyChartSVG = (props) => {
         .attr("cx", yearScale(currentYear))
         .attr("cy", sliderY)
         .attr("r", 10)
-        .attr("fill", "#69b3a2")
+        .attr("fill", "var(--accent-light)")
         .attr("cursor", "pointer")
         .on("mouseover", (e) => {
           d3.select(this).raise();
@@ -214,22 +235,13 @@ const EnergyChartSVG = (props) => {
 
         handle.attr("cx", yearScale(currentYear));
 
-        filteredData = data
-          .filter((d) => +d.Year === currentYear)
-          .filter((d) => d.Type !== "Total");
-        // Group filtered data by Type and sum TWh values
-        grouped = d3.group(filteredData, (d) => d.Type);
+        // Update node values based on selected year
+        nodes_filtered.forEach((node) => {
+          node.value = node.valuesByYear[currentYear] || 0;
+        });
 
         // Redraw bubbles with new year data
         drawBubbles();
-        // svg
-        // .selectAll("g.node")
-        // .selectAll("circle")
-        // .attr("r", (d) => {
-        //   return (d.data["2025"] / (2 * Math.PI * 2)) *
-        //         d.data["growth_rate"] ** (currentYear - yearStart)
-       
-        // });
       };
 
       const drag = d3.drag().on("drag", function (event) {

@@ -5,6 +5,9 @@ import Graph from "../d3_components/TechnologiesSVG";
 export default function Frame1() {
   const frameRef = useRef();
   const [frameWidth, setFrameWidth] = useState(0);
+  const [frameHeight, setFrameHeight] = useState(0);
+  const [currTech, setCurrTech] = useState("All");
+  const [currYear, setCurrYear] = useState(2025);
 
   useEffect(() => {
     // Initialize width on mount
@@ -19,7 +22,7 @@ export default function Frame1() {
     };
 
     window.addEventListener("resize", handleResize);
-    
+
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -28,8 +31,13 @@ export default function Frame1() {
   return (
     <div className="frame" ref={frameRef}>
       <h1>Emerging Technologies for the Digital Transformation</h1>
-      <p>This is some text for the first page</p>
-      <Graph parentWidth={frameWidth}/>
+      <div className="flexParent">
+        <Graph parentWidth={frameWidth} height={590} />
+        <div className="smallColumn2">
+          <h2 id="tech_heading"></h2>
+          <p id="tech_text">Emerging technologies are asldf asdlf alkkldjf asldfkjl adslfk;j; ;lkjadfs </p>
+        </div>
+      </div>
     </div>
   );
 }

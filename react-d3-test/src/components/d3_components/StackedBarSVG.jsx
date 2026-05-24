@@ -7,10 +7,13 @@ const StackedBarSVG = (props) => {
   const width = props.parentWidth;
   const height = props.height;
   const marginTop = 30;
-  const marginBottom = 30;
-  const marginLeft = 30;
+  const marginBottom = 60;
+  const marginLeftChart = 60;
+  const marginLeft = 5
   const marginRight = 30;
   const filename = "/data/datacenters.csv";
+
+  const fullNames = { "America" : "America", "EMEA": "Europe, Middle East, Africa", "APAC": "Asia-Pacific"}
 
   useEffect(() => {
     if (!ref.current || !width) return;
@@ -28,12 +31,10 @@ const StackedBarSVG = (props) => {
         ),
       );
 
-      console.log(series)
-
       const xExtent = d3.extent(data, (d) => {
         return +d.Year;
       });
-      const xScale = d3.scaleLinear(xExtent, [marginLeft, width - marginRight]);
+      const xScale = d3.scaleLinear(xExtent, [marginLeftChart, width - marginRight]);
       const yScale = d3.scaleLinear(
         [0, 200],
         [height - marginBottom, marginTop],
@@ -45,27 +46,21 @@ const StackedBarSVG = (props) => {
         .y0((d) => yScale(d[0]))
         .y1((d) => yScale(d[1]));
 
-      // Get unique minerals and sort for consistent color mapping
-      //   const names = Array.from(grouped_data.keys()).sort();
-
       // Create a color scale for different minerals with explicit domain
+
+      const labels = series.map((d) => d.key);
+
       const colorScale = d3
         .scaleOrdinal()
-        .domain(series.map((d) => d.key))
-        .range(d3.schemeCategory10);
-
-      // Convert Map to array of entries and create lines for each mineral
-      //   svg
-      //     .selectAll("path.mineral-line")
-      //     .data(names, (d) => d)
-      //     .join("path")
-      //     .attr("class", "mineral-line")
-      //     .attr("stroke", (d) => colorScale(d))
-      //     .attr("stroke-width", 2)
-      //     .attr("fill", "none")
-      //     .attr("d", (region) => {
-      //       return line(grouped_data.get(region));
-      //     });
+        .domain(labels)
+        .range([
+          "var(--accent-dark1)",
+          "var(--accent-dark)",
+          "var(--accent-dark2)",
+          "var(--accent-dark2)",
+          "var(--main-light)",
+          "var(--main-light)",
+        ]);
 
       svg
         .append("g")
@@ -83,8 +78,30 @@ const StackedBarSVG = (props) => {
         .data([null])
         .join("g")
         .attr("class", "x-axis")
+        .style("color", "var(--main-light)")
         .attr("transform", `translate(0, ${height - marginBottom})`)
-        .call(d3.axisBottom(xScale).ticks(5));
+        .call(d3.axisBottom(xScale).ticks(5).tickFormat(d3.format("d")));
+
+      svg
+        .selectAll("text.xlabel")
+        .data([null])
+        .join("text")
+        .attr("class", "xlabel")
+        .attr("fill", "var(--main-light)")
+        .attr("transform", `translate(${marginLeftChart}, ${height - 10})`)
+        .text("Projected Global Data Center Capacity");
+
+      svg
+        .selectAll("text.ylabel")
+        .data([null])
+        .join("text")
+        .attr("class", "ylabel")
+        .attr("fill", "var(--main-light)")
+        .attr(
+          "transform",
+          `translate(${5}, ${(height - marginBottom - 40) / 2}) rotate(90)`,
+        )
+        .text("Gigawatt (GW)");
 
       // Add or update y-axis
       svg
@@ -92,8 +109,52 @@ const StackedBarSVG = (props) => {
         .data([null])
         .join("g")
         .attr("class", "y-axis")
-        .attr("transform", `translate(${marginLeft}, 0)`)
+        .attr("transform", `translate(${marginLeftChart}, 0)`)
+        .style("color", "var(--main-light)")
         .call(d3.axisLeft(yScale));
+
+      // Create legend
+      const legendGroup = svg
+        .selectAll("g.legend")
+        .data([null])
+        .join("g")
+        .attr("class", "legend")
+        .attr("transform", `translate(${marginLeftChart + 20}, ${marginTop})`);
+
+      // Add legend items
+      legendGroup
+        .selectAll("g.legend-item")
+        .data(labels, (d) => d)
+        .join("g")
+        .attr("class", "legend-item")
+        .attr("transform", function(d, i){
+    
+            return `translate(0, ${40 - (i * 20)})`
+
+        })
+        .each(function (label) {
+          const item = d3.select(this);
+
+          // Add color square
+          item
+            .selectAll("rect")
+            .data([label])
+            .join("rect")
+            .attr("width", 12)
+            .attr("height", 12)
+            .attr("fill", (label) => colorScale(label));
+
+          // Add label
+          item
+            .selectAll("text")
+            .data([label])
+            .join("text")
+            .attr("x", 18)
+            .attr("y", 10)
+            .attr("font-size", "12px")
+            .attr("fill", "var(--main-light)")
+            .text((m) => fullNames[m]);
+        });
     });
   });
   return <svg id="graph" width={width} height={height} ref={ref}></svg>;

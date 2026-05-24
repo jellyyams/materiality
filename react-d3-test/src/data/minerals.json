@@ -1,32 +1,53 @@
 {
-    "minerals" : [
-        {
-            "name" : "All Minerals", 
-            "description" : "description of all minerals" 
-        }, 
-        {
-            "name" : "Copper", 
-            "description" : "description of copper" 
-        }, 
-        {
-            "name" : "Cobalt", 
-            "description" : "description of cobalt" 
-        }, 
-        {
-            "name" : "Lithium", 
-            "description" : "description of lithium" 
-        }, 
-        {
-            "name" : "Nickel", 
-            "description" : "description of nickel" 
-        }, 
-        {
-            "name" : "REE", 
-            "description" : "description of REE" 
-        }, 
-        {
-            "name" : "Graphite", 
-            "description" : "description of graphite" 
+    "minerals" : {
+        "All Minerals" : {
+            "paragraphs": [
+                "description of all minerals", 
+                "description of all minerals"
+
+            ]
+        },
+        "Copper" : {
+            "paragraphs": [
+                "description of all Copper", 
+                "description of all Copper"
+
+            ]
+        },
+        "Cobalt" : {
+            "paragraphs": [
+                "description of all Cobalt", 
+                "description of all Cobalt"
+
+            ]
+        },
+        "Lithium" : {
+            "paragraphs": [
+                "description of all Lithium", 
+                "description of all Lithium"
+
+            ]
+        },
+        "Nickel" : {
+            "paragraphs": [
+                "description of all Nickel", 
+                "description of all Nickel"
+
+            ]
+        },
+        "Rare Earth Elements" : {
+            "paragraphs": [
+                "description of all REE", 
+                "description of all REE"
+
+            ]
+        },
+        "Graphite" : {
+            "paragraphs": [
+                "description of all graphite", 
+                "description of all graphite"
+
+            ]
         }
-    ]
+    }
 }

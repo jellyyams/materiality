@@ -1,20 +1,56 @@
 import * as d3 from "d3";
 import { useEffect, useRef } from "react";
 import nodesData from "../../data/technologies.json";
+import "../../styles/frame.css";
+
 
 const TechnologiesSVG = (props) => {
   const ref = useRef();
 
-  const width = props.parentWidth;
-  const height = 500;
-  const base_r = 50;
+  const width = (props.parentWidth * 3) / 5;
+  const height = props.height;
+  const base_r = 10;
   const yearStart = 2025;
+  let currentYear = yearStart;
+  const marginLeftRight = 100;
+  const marginBottom = 80;
   const factor = 3;
 
   useEffect(() => {
     if (!ref.current || !width) return;
 
     const svg = d3.select(ref.current);
+
+    svg
+      .selectAll("text.heading")
+      .data(["heading"])
+      .join("text")
+      .attr("class", "heading")
+      .attr("x", marginLeftRight - 20)
+      .attr("y", height - 10)
+      .attr("text-anchor", "start")
+      .attr("font-size", "16px")
+      .attr("fill", "var(--main-light)")
+      .attr("font-family", "var(--heading-font)")
+      .text("Projected Global Market Size of Emerging Technologies, by Year");
+
+    function setText(currTech) {
+      d3.select("#tech_heading").text(currTech);
+      d3.select("#tech_text").text(currTech);
+    }
+
+    function setTooltip(hoveredTech) {
+      const tooltip = d3.select(`#${hoveredTech.name.replace(/\s+/g, "_")}`);
+      console.log(tooltip)
+      const amount = Math.round(hoveredTech["2025"] * Math.pow(hoveredTech["growth_rate"], currentYear - yearStart))
+      tooltip.style("visibility", "visible");
+      tooltip.select("text").text(`${amount} Billion USD`);
+    }
+
+    function hideTooltip(tech) {
+      const tooltip = d3.select(`#${tech.name.replace(/\s+/g, "_")}`);
+      tooltip.style("visibility", "hidden");
+    }
 
     let node = svg
       .selectAll("g.node")
@@ -29,12 +65,6 @@ const TechnologiesSVG = (props) => {
       }
     }
 
-    const link = svg
-      .selectAll("line")
-      .data(links)
-      .join("line")
-      .attr("stroke", "#999")
-      .attr("stroke-opacity", 0.3);
 
     node.each(function (d) {
       const g = d3.select(this);
@@ -49,24 +79,90 @@ const TechnologiesSVG = (props) => {
             ? d.data["2025"] / (2 * Math.PI * factor)
             : base_r;
         })
-        .style("fill", (d) => (d.type === "body" ? "#69b3a2" : "none"))
-        .style("stroke", (d) => (d.type === "body" ? "none" : "#000000"));
+        .style("fill", (d) =>
+          d.type === "body" ? "none" : "var(--accent-dark)",
+        )
+        .attr("cursor", "pointer")
+        .on("click", function (event, d) {
+          setText(d.data.name);
+        })
+        .on("mouseover", function (event, d) {
+          console.log(d);
+          setTooltip(d.data);
+        })
+        .on("mouseout", function (event, d) {
+          hideTooltip(d.data);
+        });
 
       g.selectAll("text")
         .data([d])
         .join("text")
         .text((d) => d.name)
-        .attr("fill", "black")
+        .attr("fill", "var(--main-light)")
         .attr("text-anchor", "middle")
-        .attr("dy", ".35em");
+        .attr("font-family", "var(--text-font)")
+        .attr("dy", (d) => (d["2025"] < 400 ? "1.5em" : "0.35em"))
+        .attr("cursor", "pointer")
+        .on("click", function (event, d) {
+          setText(d.name);
+        }).on("mouseover", function (event, d) {
+          setTooltip(d);
+        })
+        .on("mouseout", function (event, d) {
+          hideTooltip(d);
+        });
+
+      let tooltip = g
+        .selectAll("g.tooltip")
+        .data([d])
+        .join("g")
+        .attr("class", "tooltip")
+        .attr("id", (d) => d.name.replace(/\s+/g, "_"))
+        .style("visibility", "hidden");
+
+      // let tooltip_div = tooltip.selectAll("div").data([d]).join("div").attr("")
+
+      tooltip
+        .selectAll("text")
+        .data([d])
+        .join("text")
+        .attr("dy", "-0.8em")
+        .attr("text-anchor", "middle")
+        .attr("fill", "var(--accent-light)")
+        .style("font-weight", "bold")
+        .attr("class", "tooltiptext");
     });
+
+    const calculateCollideRadius = (d, year) => {
+      const size =
+        (d["2025"] * Math.pow(d["growth_rate"], year - yearStart)) /
+        (2 * Math.PI * factor);
+      console.log(size);
+      if (size < 5) {
+        return size + 30;
+      }
+      return size + 10; // Add padding to collide radius
+    };
+
+
+    const link = svg
+      .selectAll("line")
+      .data(links)
+      .join("line")
+      .attr("stroke", "#999")
+      .attr("stroke-opacity", 0.3);
 
     let simulation = d3
       .forceSimulation(nodesData.nodes)
       .force("center", d3.forceCenter(width / 2, height / 2).strength(0.01))
-      .force("charge", d3.forceManyBody().strength(-300))
+      .force("charge", d3.forceManyBody().strength(-30))
       .force("link", d3.forceLink(links).strength(0.005))
-      .force("collide", d3.forceCollide().radius(80).iterations(2))
+      .force(
+        "collide",
+        d3
+          .forceCollide((d) => calculateCollideRadius(d, currentYear))
+          .iterations(2),
+      )
       .force("y", d3.forceY(height / 2).strength(0.02));
 
     simulation.on("tick", () => {
@@ -79,15 +175,13 @@ const TechnologiesSVG = (props) => {
     });
 
     // Slider setup
-    const sliderPadding = 50;
-    const sliderWidth = width - 2 * sliderPadding;
-    const sliderY = height - 40;
-    let currentYear = yearStart;
+    const sliderWidth = width - 2 * marginLeftRight;
+    const sliderY = height - marginBottom;
 
     const yearScale = d3
       .scaleLinear()
       .domain([yearStart, 2030])
-      .range([sliderPadding, sliderPadding + sliderWidth])
+      .range([marginLeftRight, marginLeftRight + sliderWidth])
       .clamp(true);
 
     // Create or update slider group
@@ -103,11 +197,11 @@ const TechnologiesSVG = (props) => {
       .data([{ type: "visible" }, { type: "invisible" }])
       .join("line")
       .attr("class", "track")
-      .attr("x1", sliderPadding)
-      .attr("x2", sliderPadding + sliderWidth)
+      .attr("x1", marginLeftRight)
+      .attr("x2", marginLeftRight + sliderWidth)
       .attr("y1", sliderY)
       .attr("y2", sliderY)
-      .attr("stroke", "#ccc")
+      .attr("stroke", "var(--main-light)")
       .attr("stroke-width", (d) => (d.type === "visible" ? 3 : 6))
       .attr("opacity", (d) => (d.type === "visible" ? 1 : 0))
       .attr("cursor", "pointer")
@@ -129,7 +223,7 @@ const TechnologiesSVG = (props) => {
       .attr("x2", (year) => yearScale(year))
       .attr("y1", sliderY - 5)
       .attr("y2", sliderY + 5)
-      .attr("stroke", "#999")
+      .attr("stroke", "var(--main-light)")
       .attr("stroke-width", 1);
 
     // Draw year labels
@@ -142,6 +236,8 @@ const TechnologiesSVG = (props) => {
       .attr("y", sliderY + 20)
       .attr("text-anchor", "middle")
       .attr("font-size", "12px")
+      .attr("font-family", "var(--text-font)")
+      .attr("fill", "var(--main-light)")
       .text((year) => year);
 
     // Create or update draggable handle
@@ -153,7 +249,7 @@ const TechnologiesSVG = (props) => {
       .attr("cx", yearScale(currentYear))
       .attr("cy", sliderY)
       .attr("r", 10)
-      .attr("fill", "#69b3a2")
+      .attr("fill", "var(--accent-light)")
       .attr("cursor", "pointer")
       .on("mouseover", (e) => {
         d3.select(this).raise();
@@ -168,8 +264,8 @@ const TechnologiesSVG = (props) => {
       const [svgX] = d3.pointer(event, ref.current);
 
       const x = Math.max(
-        sliderPadding,
-        Math.min(svgX, sliderPadding + sliderWidth),
+        marginLeftRight,
+        Math.min(svgX, marginLeftRight + sliderWidth),
       );
 
       currentYear = Math.round(yearScale.invert(x));
@@ -181,10 +277,19 @@ const TechnologiesSVG = (props) => {
         .attr("r", (d) => {
           return d.type === "marketsize"
             ? (d.data["2025"] *
-                (d.data["growth_rate"] ** (currentYear - yearStart)) )/
-                (2 * Math.PI * 2)
+                d.data["growth_rate"] ** (currentYear - yearStart)) /
+                (2 * Math.PI * factor)
             : base_r;
         });
+
+      // Update collide force with new node sizes
+      simulation.force(
+        "collide",
+        d3
+          .forceCollide((d) => calculateCollideRadius(d, currentYear))
+          .iterations(2),
+      );
+      simulation.alpha(0.3).restart();
     };
 
     const drag = d3.drag().on("drag", function (event) {

@@ -1,0 +1,16 @@
+{
+    "infrastructures": {
+        "data_centers": {
+            "paragraphs": ["this is paragraph one", "this is paragraph two"]
+        }, 
+        "cabling": {
+            "paragraphs": ["this is paragraph one", "this is paragraph two"]
+        }, 
+        "chips": {
+            "paragraphs": ["this is paragraph one", "this is paragraph two"]
+        }, 
+        "energy": {
+            "paragraphs": ["this is paragraph one", "this is paragraph two"]
+        }
+    }
+}

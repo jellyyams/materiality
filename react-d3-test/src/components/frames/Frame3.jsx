@@ -1,8 +1,10 @@
 import { useEffect, useState, useRef } from "react";
 import "../../styles/frame.css";
+import "../../styles/frame3.css";
 import mineralData from "../../data/minerals.json";
 import MineralsLineSVG from "../d3_components/MineralsLineSVG";
 import MineralsBarSVG from "../d3_components/MineralsBarSVG";
+import TextContent from "../components/TextContent";
 
 export default function Frame3() {
   const [currMineral, setCurrMineral] = useState("All Minerals");
@@ -10,6 +12,8 @@ export default function Frame3() {
   const [frameWidth, setFrameWidth] = useState(0);
 
   const frameRef = useRef();
+  const mineralNames = Object.keys(mineralData.minerals);
+  console.log(mineralNames);
 
   function SelectedSubframe() {
     switch (currMineral) {
@@ -30,10 +34,21 @@ export default function Frame3() {
     }
   }
 
+  function MineralButtons() {
+    return mineralNames.map((name) => {
+      return (
+        <p
+          className={currMineral === name ? "clickable_selected" : "clickable"}
+          onClick={() => handleClick(name)}
+        >
+          {name}
+        </p>
+      );
+    });
+  }
+
   function handleClick(name) {
     setCurrMineral(name);
-    let data = mineralData.minerals.filter((mineral) => mineral.name === name);
-    setDescription(data[0].description);
   }
 
   useEffect(() => {
@@ -60,14 +75,7 @@ export default function Frame3() {
       <h1>Mineral Extraction for Emerging Technology Infrastructures</h1>
 
       <div className="flexRow">
-        {mineralData &&
-          mineralData.minerals.map((i) => {
-            return (
-              <p className="clickable" onClick={() => handleClick(i.name)}>
-                {i.name}
-              </p>
-            );
-          })}
+        <MineralButtons />
       </div>
       <div className="mineralSubframe">
         <SelectedSubframe />
