@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "../../styles/frame.css";
 import EnergyChartSVG from "../d3_components/EnergyChartSVG";
-import StackedBarSVG from "../d3_components/StackedBarSVG";
+import StackedLineSVG from "../d3_components/StackedLineSVG";
 import TextContent from "../components/TextContent";
 import textData from "../../data/infrastructures.json";
 
@@ -16,7 +16,7 @@ export default function Frame2(props) {
               title="Data Centers"
               data={textData.infrastructures.data_centers}
             />
-            <StackedBarSVG parentWidth="400" height="400" />
+            <StackedLineSVG parentWidth="400" height="400" />
           </div>
         );
       case "energy":
@@ -56,7 +56,7 @@ export default function Frame2(props) {
               title="Data Centers"
               data={textData.infrastructures.data_centers}
             />
-            <StackedBarSVG parentWidth="400" height="400" />
+            <StackedLineSVG parentWidth="400" height="400" />
           </div>
         );
     }

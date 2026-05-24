@@ -18,13 +18,11 @@ export default function Frame3() {
   function SelectedSubframe() {
     switch (currMineral) {
       case "All Minerals":
-        return <p>This frame is about all minerals</p>;
+        return <TextContent data={mineralData.minerals["All Minerals"]}/>;
       default:
         return (
           <div className="flexRow2">
-            <div>
-              <p>{currDescription}</p>
-            </div>
+            <TextContent data={mineralData.minerals[currMineral]}/>;
             <MineralsBarSVG
               currMineral={currMineral}
               parentWidth={frameWidth}
@@ -77,7 +75,7 @@ export default function Frame3() {
       <div className="flexRow">
         <MineralButtons />
       </div>
-      <div className="mineralSubframe">
+      <div className="textSubframe">
         <SelectedSubframe />
       </div>
     </div>

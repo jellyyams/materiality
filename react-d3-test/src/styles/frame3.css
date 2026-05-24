@@ -19,16 +19,12 @@
     border-radius: 0.3rem;
     background-color: var(--accent-light);
     padding: 1rem;
+    color: var(--main-dark);
 
 }
 
 
-.mineralSubframe {
-    padding: 1rem;
-    margin: 1rem 0;
-    flex: 1;
-    display: flex;
-    overflow: hidden;
-    border: 3px solid var(--accent-light);
-    border-radius: 0.3rem;
+.dashedline {
+    stroke-dasharray: 5.5;
 }
+

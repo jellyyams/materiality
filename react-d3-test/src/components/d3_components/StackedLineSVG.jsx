@@ -2,7 +2,7 @@ import * as d3 from "d3";
 import { useEffect, useRef } from "react";
 import dataCenterNodes from "../../data/datacenters.json";
 
-const StackedBarSVG = (props) => {
+const StackedLineSVG = (props) => {
   const ref = useRef();
   const width = props.parentWidth;
   const height = props.height;
@@ -159,4 +159,4 @@ const StackedBarSVG = (props) => {
   });
   return <svg id="graph" width={width} height={height} ref={ref}></svg>;
 };
-export default StackedBarSVG;
+export default StackedLineSVG;

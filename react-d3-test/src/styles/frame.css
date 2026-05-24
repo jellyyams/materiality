@@ -125,3 +125,20 @@
     align-items: left;
     justify-content: space-between;
 }
+
+.textSubframe {
+    padding: 1rem;
+    margin: 1rem 0;
+    border: 3px solid var(--accent-light);
+    border-radius: 0.3rem;
+    flex: 1;
+}
+.right_img{
+    max-width: 35%;
+    position:absolute;
+    bottom: 20%;
+    right:-2%;
+    border: 3px solid var(--accent-light);
+    border-radius: 0.3rem;
+
+}
