@@ -4,6 +4,58 @@
   text-align: center;
 }
 
+.arrows img{
+  position: fixed; 
+  opacity: 50%;
+  width: 35rem;
+  
+}
+.largeArrowRight{
+  transform: rotate(180deg);
+  right: -24rem;
+  top: 25rem;
+  
+}
+
+.largeArrowLeft{
+  transform: rotate(90deg);
+  left: -25rem;
+  top: 18rem;
+}
+
+.largeArrowTop{
+  transform: rotate(180deg);
+  left: 14rem;
+  top: -33rem;
+} 
+.largeArrowBottom{
+  transform: rotate(270deg);
+  left: 10rem;
+  bottom: -32rem;
+} 
+
+.largeArrowRightBottom{
+  transform: rotate(270deg);
+  right: -25rem;
+  bottom: 18rem;
+} 
+
+.largeArrowLeftBottom{
+  left: -23rem;
+  bottom: 20rem;
+} 
+
+.largeArrowTopLeft{
+  transform: rotate(90deg);
+  right: 8rem;
+  top: -30rem;
+}
+
+.largeArrowBottomLeft{
+  right: 14rem;
+  bottom: -33rem;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

@@ -12,7 +12,8 @@ const TechnologiesSVG = (props) => {
   const base_r = 10;
   const yearStart = 2025;
   let currentYear = yearStart;
-  const marginLeftRight = 100;
+  const marginLeft = 20;
+  const marginRight = 80;
   const marginBottom = 80;
   const factor = 3;
 
@@ -26,10 +27,10 @@ const TechnologiesSVG = (props) => {
       .data(["heading"])
       .join("text")
       .attr("class", "heading")
-      .attr("x", marginLeftRight - 20)
+      .attr("x", marginLeft - 20)
       .attr("y", height - 10)
       .attr("text-anchor", "start")
-      .attr("font-size", "16px")
+      .attr("font-size", "14px")
       .attr("fill", "var(--main-light)")
       .attr("font-family", "var(--heading-font)")
       .text("Projected Global Market Size of Emerging Technologies, by Year");
@@ -37,8 +38,13 @@ const TechnologiesSVG = (props) => {
     function setText(currTech) {
       let currTech_data = d3.filter(nodesData.nodes, d => d.name === currTech)[0]
       d3.select("#tech_heading").text(currTech);
-      d3.select("#tech_text").text(currTech);
-      d3.select("#disclaimer").style("visibility", "hidden");
+      d3.select("#tech_text1").text("");
+      d3.select("#tech_text2").text("");
+      for(let i = 0; i <currTech_data.description.length; i++){
+        d3.select(`#tech_text${i}`).text(currTech_data.description[i]);
+
+      }
+
       console.log(currTech_data[0])
       d3.select("#tech_image").attr("src", `/images/${currTech_data.img_file}`).attr("class", currTech_data.img_class );
     }
@@ -179,13 +185,13 @@ const TechnologiesSVG = (props) => {
     });
 
     // Slider setup
-    const sliderWidth = width - 2 * marginLeftRight;
+    const sliderWidth = width - marginLeft - marginRight;
     const sliderY = height - marginBottom;
 
     const yearScale = d3
       .scaleLinear()
       .domain([yearStart, 2030])
-      .range([marginLeftRight, marginLeftRight + sliderWidth])
+      .range([marginLeft, marginLeft + sliderWidth])
       .clamp(true);
 
     // Create or update slider group
@@ -201,8 +207,8 @@ const TechnologiesSVG = (props) => {
       .data([{ type: "visible" }, { type: "invisible" }])
       .join("line")
       .attr("class", "track")
-      .attr("x1", marginLeftRight)
-      .attr("x2", marginLeftRight + sliderWidth)
+      .attr("x1", marginLeft)
+      .attr("x2", marginLeft + sliderWidth)
       .attr("y1", sliderY)
       .attr("y2", sliderY)
       .attr("stroke", "var(--main-light)")
@@ -268,8 +274,8 @@ const TechnologiesSVG = (props) => {
       const [svgX] = d3.pointer(event, ref.current);
 
       const x = Math.max(
-        marginLeftRight,
-        Math.min(svgX, marginLeftRight + sliderWidth),
+        marginLeft,
+        Math.min(svgX, marginLeft + sliderWidth),
       );
 
       currentYear = Math.round(yearScale.invert(x));

@@ -2,64 +2,87 @@
     "nodes": [
         {
             "id": 1,
-            "name": "AI", 
-            "2025": 539, 
-            "growth_rate": 1.306, 
-            "description" : "Ai is an emerging technology", 
-            "img_file" : "server.png.webp", 
-            "img_class" : "sticky_img_bot_right_small"
-        }, 
+            "name": "AI",
+            "2025": 539,
+            "growth_rate": 1.306,
+            "description": [
+                "While the field of artificial intelligence and machine learning has been steadily progressing since the latter half of the 20th century, the release of ChatGPT in 2022 brought Large Language Models (LLMs) and generative AI models into the mainstream. Infamously, spending and investment in AI continues to reach new records, with an estimated 1.5 trillion USD spent in 2025. In terms of market size, the AI market sits below Internet of Things and Cloud Computing today at 539 billion USD with a CAGR of 30.6%.",
+                "While industry actors and Silicon Valley seem optimistic about the future of AI, others remain uncertain about its social, economic, and environmental consequences. "
+            ],
+            "img_file": "server.png.webp",
+            "img_class": "sticky_img_bot_right_small"
+        },
         {
             "id": 2,
-            "name": "Digital Twins", 
-            "2025": 21.14, 
-            "growth_rate": 1.479, 
-            "description" : "Digital twins are an emerging technology",
-            "img_file" : "server.png.webp", 
-            "img_class" : "sticky_img_bot_right_small"
-
-        }, 
+            "name": "Digital Twins",
+            "2025": 21.14,
+            "growth_rate": 1.479,
+            "description": [
+                "While the field of artificial intelligence and machine learning has been steadily progressing since the latter half of the 20th century, the release of ChatGPT in 2022 brought Large Language Models (LLMs) and generative AI models into the mainstream. Infamously, spending and investment in AI continues to reach new records, with an estimated 1.5 trillion USD spent in 2025. In terms of market size, the AI market sits below Internet of Things and Cloud Computing today at 539 billion USD with a CAGR of 30.6%.",
+                "While industry actors and Silicon Valley seem optimistic about the future of AI, others remain uncertain about its social, economic, and environmental consequences. "
+            ],
+            "img_file": "server.png.webp",
+            "img_class": "sticky_img_bot_right_small"
+        },
         {
             "id": 3,
-            "name": "Blockchain", 
-            "2025": 41.15, 
-            "growth_rate": 1.504, 
-            "description" : "blockhasdfalsdfasdf",
-            "img_file" : "server.png.webp", 
-            "img_class" : "sticky_img_bot_right_small"
-        }, {
+            "name": "Blockchain",
+            "2025": 41.15,
+            "growth_rate": 1.504,
+            "description": [
+                "While the field of artificial intelligence and machine learning has been steadily progressing since the latter half of the 20th century, the release of ChatGPT in 2022 brought Large Language Models (LLMs) and generative AI models into the mainstream. Infamously, spending and investment in AI continues to reach new records, with an estimated 1.5 trillion USD spent in 2025. In terms of market size, the AI market sits below Internet of Things and Cloud Computing today at 539 billion USD with a CAGR of 30.6%.",
+                "While industry actors and Silicon Valley seem optimistic about the future of AI, others remain uncertain about its social, economic, and environmental consequences. "
+            ],
+            "img_file": "server.png.webp",
+            "img_class": "sticky_img_bot_right_small"
+        },
+        {
             "id": 4,
-            "name": "Cloud Computing", 
-            "2025": 943, 
-            "growth_rate": 1.16, 
-            "description" : "cloud coadmspadsf is an emerging technology",
-            "img_file" : "server.png.webp", 
-            "img_class" : "sticky_img_bot_right_small"
-        }, 
+            "name": "Cloud Computing",
+            "2025": 943,
+            "growth_rate": 1.16,
+            "description":[
+                "While the field of artificial intelligence and machine learning has been steadily progressing since the latter half of the 20th century, the release of ChatGPT in 2022 brought Large Language Models (LLMs) and generative AI models into the mainstream. Infamously, spending and investment in AI continues to reach new records, with an estimated 1.5 trillion USD spent in 2025. In terms of market size, the AI market sits below Internet of Things and Cloud Computing today at 539 billion USD with a CAGR of 30.6%.",
+                "While industry actors and Silicon Valley seem optimistic about the future of AI, others remain uncertain about its social, economic, and environmental consequences. "
+            ],
+            "img_file": "server.png.webp",
+            "img_class": "sticky_img_bot_right_small"
+        },
         {
             "id": 5,
-            "name": "Internt of Things", 
-            "2025": 1596, 
-            "growth_rate": 1.089, 
-            "description" : "internet of things ",
-            "img_file" : "server.png.webp", 
-            "img_class" : "sticky_img_bot_right_small"
-        }, {
+            "name": "Internt of Things",
+            "2025": 1596,
+            "growth_rate": 1.089,
+            "description": [
+                "While the field of artificial intelligence and machine learning has been steadily progressing since the latter half of the 20th century, the release of ChatGPT in 2022 brought Large Language Models (LLMs) and generative AI models into the mainstream. Infamously, spending and investment in AI continues to reach new records, with an estimated 1.5 trillion USD spent in 2025. In terms of market size, the AI market sits below Internet of Things and Cloud Computing today at 539 billion USD with a CAGR of 30.6%.",
+                "While industry actors and Silicon Valley seem optimistic about the future of AI, others remain uncertain about its social, economic, and environmental consequences. "
+            ],
+            "img_file": "server.png.webp",
+            "img_class": "sticky_img_bot_right_small"
+        },
+        {
             "id": 6,
-            "name": "Robotics", 
-            "2025": 53.1, 
-            "growth_rate": 1.176, 
-            "description" : "roboticsasdfads is an emerging technology",
-            "img_file" : "robot_dog.png", 
-            "img_class" : "sticky_img_bot_right"
-        }, {
+            "name": "Robotics",
+            "2025": 53.1,
+            "growth_rate": 1.176,
+            "description": [
+                "While the field of artificial intelligence and machine learning has been steadily progressing since the latter half of the 20th century, the release of ChatGPT in 2022 brought Large Language Models (LLMs) and generative AI models into the mainstream. Infamously, spending and investment in AI continues to reach new records, with an estimated 1.5 trillion USD spent in 2025. In terms of market size, the AI market sits below Internet of Things and Cloud Computing today at 539 billion USD with a CAGR of 30.6%.",
+                "While industry actors and Silicon Valley seem optimistic about the future of AI, others remain uncertain about its social, economic, and environmental consequences. "
+            ],
+            "img_file": "robot_dog.png",
+            "img_class": "sticky_img_bot_right"
+        },
+        {
             "id": 7,
-            "name": "Drones", 
-            "2025": 83.8, 
+            "name": "Drones",
+            "2025": 83.8,
             "growth_rate": 1.095,
-            "description" : "drones are ang technology",
-            "img_file" : "drone.png", 
-            "img_class" : "sticky_img_bot_right"
+            "description":[
+                "While the field of artificial intelligence and machine learning has been steadily progressing since the latter half of the 20th century, the release of ChatGPT in 2022 brought Large Language Models (LLMs) and generative AI models into the mainstream. Infamously, spending and investment in AI continues to reach new records, with an estimated 1.5 trillion USD spent in 2025. In terms of market size, the AI market sits below Internet of Things and Cloud Computing today at 539 billion USD with a CAGR of 30.6%.",
+                "While industry actors and Silicon Valley seem optimistic about the future of AI, others remain uncertain about its social, economic, and environmental consequences. "
+            ],
+            "img_file": "drone.png",
+            "img_class": "sticky_img_bot_right"
         }
     ]
 }

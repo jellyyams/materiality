@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "../../styles/frame.css";
 import EnergyChartSVG from "../d3_components/EnergyChartSVG";
 import StackedLineSVG from "../d3_components/StackedLineSVG";
@@ -6,7 +6,29 @@ import TextContent from "../components/TextContent";
 import textData from "../../data/infrastructures.json";
 
 export default function Frame2(props) {
+  const frameRef = useRef();
   const [subFrame, setSubframe] = useState("data_centers");
+  const [frameWidth, setFrameWidth] = useState(0);
+
+  useEffect(() => {
+    // Initialize width on mount
+    if (frameRef.current) {
+      setFrameWidth(frameRef.current.offsetWidth);
+    }
+
+    const handleResize = () => {
+      if (frameRef.current) {
+        setFrameWidth(frameRef.current.offsetWidth);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   function SelectedSubframe() {
     switch (subFrame) {
       case "data_centers":
@@ -16,7 +38,7 @@ export default function Frame2(props) {
               title="Data Centers"
               data={textData.infrastructures.data_centers}
             />
-            <StackedLineSVG parentWidth="400" height="400" />
+            <StackedLineSVG parentWidth={frameWidth} height="350" />
           </div>
         );
       case "energy":
@@ -26,7 +48,7 @@ export default function Frame2(props) {
               title="Energy Infrastructure"
               data={textData.infrastructures.energy}
             />
-            <EnergyChartSVG parentWidth="400" height="400" />
+            <EnergyChartSVG parentWidth={frameWidth} height="350" />
           </div>
         );
       case "cabling":
@@ -63,7 +85,7 @@ export default function Frame2(props) {
   }
 
   return (
-    <div className="frame">
+    <div className="frame" ref={frameRef}>
       <h1>
         Material Infrastructures and Components needed for emerging technologies
       </h1>

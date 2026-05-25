@@ -13,24 +13,22 @@
 
 .sticky_img_bot_right{
     position:absolute; 
-    width: 20rem;
-    bottom: -10%;
-    right: -5%;
+    width: 15rem;
+    bottom: -5%;
+    right: -3%;
 
 }
 
 .sticky_img_bot_right_small{
     position:absolute; 
-    width: 16rem;
-    bottom: -10%;
-    right: -5%;
+    width: 12rem;
+    bottom: -1%;
+    right: -3%;
 
 }
 
 .flexParent {
     display: flex; 
-    flex: 1;
-    align-items: stretch;
     justify-content: space-between;
 
 }
@@ -48,7 +46,7 @@
 }
 
 .smallColumn2 {
-    margin-top: 2rem;
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
     margin-left:  2rem;
@@ -56,8 +54,7 @@
     width: 40%;
     padding: 1.5rem; 
     border: 3px solid var(--accent-light);
-    border-radius: 6px;
-    height: stretch;
+    border-radius: 0.3rem;
 }
 
 
@@ -66,9 +63,9 @@
     margin: 0 0 0 2rem;
     width: stretch;
     padding: 1.5rem; 
-    border: 3px solid var(--accent-light);
-    border-radius: 6px;
-    height: stretch;
+    border: var(--border-styling1);
+    border-radius: 0.3rem;
+    flex: 1;
     
 }
 
@@ -80,12 +77,11 @@
 
 
 .buttonsCol p{
-    margin: 1rem 1rem 0 0;
-    padding: 1rem;
+    margin: 0.8rem 0.8rem 0 0;
+    padding: 0.5rem;
     background-color: var(--main-light);
     color: var(--main-dark); 
     border-radius: 0.3rem;
-    font-size: 15px;
     cursor: pointer;
     border: 4px solid var(--main-light);
 }
@@ -101,7 +97,7 @@
 }
 
 .dataCentersButton {
-    padding: 2rem 1rem !important;
+    padding: 1.5rem 0.5rem !important;
 
 }
 
@@ -119,9 +115,8 @@
 
 .rawMaterialsButton {
     background-color: var(--accent-dark2);
-    width: 100%; 
-    padding: 1.3rem 1rem;
-    margin: 1rem 0rem;
+    padding: 1rem;
+    margin: 0.8rem 0rem;
     border-radius: 0.3rem;
     pointer-events: auto;
 }

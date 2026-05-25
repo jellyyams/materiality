@@ -31,10 +31,10 @@ export default function Frame1() {
     <div className="frame" ref={frameRef}>
       <h1>Market Size of Emerging Technologies</h1>
       <div className="flexParent">
-        <Graph parentWidth={frameWidth} height={590} />
+        <Graph parentWidth={frameWidth} height={450} />
         <div className="smallColumn2">
           <h2 id="tech_heading">Invest Now!</h2>
-          <p id="tech_text">
+          <p id="tech_text0">
             In 2025, seven emerging technologies (AI, blockchain, robotics,
             cloud computing, drones, Internet of Things, and digital twins) saw
             an estimated market size of <b>3.3 trillion usd</b>. Collectively, that
@@ -48,7 +48,8 @@ export default function Frame1() {
             enormous demand in the next 5 years, and that it’s important to
             invest in them today.
           </p>
-          <p className="disclaimer" id="disclaimer">Click on each technology bubble on the left to read more.</p>
+          <p id="tech_text1">Click on each technology bubble on the left to read more.</p>
+          <p id="tech_text2"></p>
           <img id="tech_image" src="/images/server.png.webp" className="sticky_img_bot_right_small"></img>
         </div>
       </div>

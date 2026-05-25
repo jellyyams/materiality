@@ -8,26 +8,31 @@
     --accent-dark3: #232280; 
     --heading-font: "JetBrains Mono"; 
     --text-font: "Gothic AI", sans-serif;
-    --border-styling: 3px solid var(--accent-light);
+    --border-styling1: 3px solid var(--accent-light);
+    --border-styling2: 3px dashed var(--accent-dark1);
     --border-radius: 0.3rem;
 }
 
 p {
   font-family: "Gothic A1", sans-serif;
   color: var(--main-light); 
-  font-size: 18px;
+  font-size: 12px;
+  margin-top: 0rem;
 }
 
 h1 {
   font-family: "JetBrains Mono";
   font-weight: bold; 
   color: var(--main-light); 
+  font-size: 24px;
+  margin-top: 0rem;
 }
 
 h2 {
   font-family: "JetBrains Mono";
   font-weight: regular; 
   color: var(--main-light); 
+  font-size: 18px;
 }
 
 body {

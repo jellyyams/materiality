@@ -4,7 +4,7 @@ import dataCenterNodes from "../../data/datacenters.json";
 
 const StackedLineSVG = (props) => {
   const ref = useRef();
-  const width = props.parentWidth;
+  const width = props.parentWidth/3;
   const height = props.height;
   const marginTop = 30;
   const marginBottom = 60;

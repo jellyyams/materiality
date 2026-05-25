@@ -34,13 +34,13 @@
 
 .box_top {
     left: 50%;
-    top: 10%;
+    top: 15%;
    border: 3px dashed var(--accent-dark1);
 }
 
 .box_bottom {
     left: 50%;
-    top: 90%;
+    top: 85%;
     border: 3px solid var(--accent-light);
     
 }
@@ -63,30 +63,31 @@
 
 .boxes img{
     position: fixed; 
-    width: 18%;
+    width: 14%;
+    opacity: 50%;
 
 }
 
 .top_left{
     transform: rotate(90deg);
     left: 25%;
-    top: 10%;
+    top: 15%;
 }
 
 .top_right{
     transform: rotate(180deg);
     right: 25%;
-    top: 10%;
+    top: 15%;
 }
 
 .bottom_left{
     transform: rotate(270deg);
     right: 25%;
-    bottom: 10%;
+    bottom: 15%;
 }
 
 .bottom_right{
     left: 25%;
-    bottom: 10%;
+    bottom: 15%;
 }
 
