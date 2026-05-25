@@ -35,8 +35,12 @@ const TechnologiesSVG = (props) => {
       .text("Projected Global Market Size of Emerging Technologies, by Year");
 
     function setText(currTech) {
+      let currTech_data = d3.filter(nodesData.nodes, d => d.name === currTech)[0]
       d3.select("#tech_heading").text(currTech);
       d3.select("#tech_text").text(currTech);
+      d3.select("#disclaimer").style("visibility", "hidden");
+      console.log(currTech_data[0])
+      d3.select("#tech_image").attr("src", `/images/${currTech_data.img_file}`).attr("class", currTech_data.img_class );
     }
 
     function setTooltip(hoveredTech) {

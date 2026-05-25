@@ -8,11 +8,14 @@
     --accent-dark3: #232280; 
     --heading-font: "JetBrains Mono"; 
     --text-font: "Gothic AI", sans-serif;
+    --border-styling: 3px solid var(--accent-light);
+    --border-radius: 0.3rem;
 }
 
 p {
   font-family: "Gothic A1", sans-serif;
   color: var(--main-light); 
+  font-size: 18px;
 }
 
 h1 {

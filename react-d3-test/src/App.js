@@ -3,6 +3,7 @@ import Frame1 from "./components/frames/Frame1";
 import Frame2 from "./components/frames/Frame2";
 import Frame3 from "./components/frames/Frame3";
 import Frame4 from "./components/frames/Frame4";
+import Frame5 from "./components/frames/Frame5";
 import SideTracker from "./components/SideTracker";
 import LoopDiagramSVG from "./components/d3_components/LoopDiagramSVG";
 import "./App.css";
@@ -12,6 +13,8 @@ function App() {
 
   const handleScroll = () => {
     console.log(window.scrollY)
+    console.log(document.documentElement.scrollTop)
+    console.log(window.pageYOffset)
     console.log("scrolled")
 
   }
@@ -32,7 +35,8 @@ function App() {
       case 4:
         return <Frame4 />;
       case 5:
-        return <div className="loop_svg"><LoopDiagramSVG parentWidth = {1000} height = {800}/></div>;
+        // return <div className="loop_svg"><LoopDiagramSVG parentWidth = {1000} height = {800}/></div>;
+        return <Frame5 setFrame={setFrame}/>;
       default:
         return <Frame1 />;
     }

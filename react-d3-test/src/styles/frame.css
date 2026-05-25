@@ -11,6 +11,22 @@
     flex-direction: column;
 }
 
+.sticky_img_bot_right{
+    position:absolute; 
+    width: 20rem;
+    bottom: -10%;
+    right: -5%;
+
+}
+
+.sticky_img_bot_right_small{
+    position:absolute; 
+    width: 16rem;
+    bottom: -10%;
+    right: -5%;
+
+}
+
 .flexParent {
     display: flex; 
     flex: 1;
@@ -103,16 +119,21 @@
 
 .rawMaterialsButton {
     background-color: var(--accent-dark2);
-    width: stretch; 
-    padding: 0.3rem 1rem;
+    width: 100%; 
+    padding: 1.3rem 1rem;
     margin: 1rem 0rem;
     border-radius: 0.3rem;
+    pointer-events: auto;
 }
 
 .rawMaterialsButton:hover {
     background-color: var(--accent-dark);
-
     cursor: pointer;
+}
+
+.rawMaterialsButton p {
+    pointer-events: auto;
+    margin: 0;
 }
 
 .flexRow {

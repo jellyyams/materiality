@@ -5,46 +5,61 @@
             "name": "AI", 
             "2025": 539, 
             "growth_rate": 1.306, 
-            "description" : "Ai is an emerging technology"
+            "description" : "Ai is an emerging technology", 
+            "img_file" : "server.png.webp", 
+            "img_class" : "sticky_img_bot_right_small"
         }, 
         {
             "id": 2,
             "name": "Digital Twins", 
             "2025": 21.14, 
             "growth_rate": 1.479, 
-            "description" : "Digital twins are an emerging technology"
+            "description" : "Digital twins are an emerging technology",
+            "img_file" : "server.png.webp", 
+            "img_class" : "sticky_img_bot_right_small"
+
         }, 
         {
             "id": 3,
             "name": "Blockchain", 
             "2025": 41.15, 
             "growth_rate": 1.504, 
-            "description" : "blockhasdfalsdfasdf"
+            "description" : "blockhasdfalsdfasdf",
+            "img_file" : "server.png.webp", 
+            "img_class" : "sticky_img_bot_right_small"
         }, {
             "id": 4,
             "name": "Cloud Computing", 
             "2025": 943, 
             "growth_rate": 1.16, 
-            "description" : "cloud coadmspadsf is an emerging technology"
+            "description" : "cloud coadmspadsf is an emerging technology",
+            "img_file" : "server.png.webp", 
+            "img_class" : "sticky_img_bot_right_small"
         }, 
         {
             "id": 5,
             "name": "Internt of Things", 
             "2025": 1596, 
             "growth_rate": 1.089, 
-            "description" : "internet of things "
+            "description" : "internet of things ",
+            "img_file" : "server.png.webp", 
+            "img_class" : "sticky_img_bot_right_small"
         }, {
             "id": 6,
             "name": "Robotics", 
             "2025": 53.1, 
             "growth_rate": 1.176, 
-            "description" : "roboticsasdfads is an emerging technology"
+            "description" : "roboticsasdfads is an emerging technology",
+            "img_file" : "robot_dog.png", 
+            "img_class" : "sticky_img_bot_right"
         }, {
             "id": 7,
             "name": "Drones", 
             "2025": 83.8, 
             "growth_rate": 1.095,
-            "description" : "drones are ang technology"
+            "description" : "drones are ang technology",
+            "img_file" : "drone.png", 
+            "img_class" : "sticky_img_bot_right"
         }
     ]
 }

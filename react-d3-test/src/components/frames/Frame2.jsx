@@ -117,8 +117,8 @@ export default function Frame2(props) {
           <SelectedSubframe />
         </div>
       </div>
-      <div className="rawMaterialsButton">
-        <p onClick={() => props.setFrame(2)}>Raw materials</p>
+      <div onClick={() => props.setFrame(3)} className="rawMaterialsButton">
+        <p>Raw materials</p>
       </div>
     </div>
   );
