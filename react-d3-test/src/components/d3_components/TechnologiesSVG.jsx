@@ -44,8 +44,6 @@ const TechnologiesSVG = (props) => {
         d3.select(`#tech_text${i}`).text(currTech_data.description[i]);
 
       }
-
-      console.log(currTech_data[0])
       d3.select("#tech_image").attr("src", `/images/${currTech_data.img_file}`).attr("class", currTech_data.img_class );
     }
 
@@ -58,8 +56,7 @@ const TechnologiesSVG = (props) => {
     }
 
     function hideTooltip(tech) {
-      const tooltip = d3.select(`#${tech.name.replace(/\s+/g, "_")}`);
-      tooltip.style("visibility", "hidden");
+      d3.select(`#${tech.name.replace(/\s+/g, "_")}`).style("visibility", "hidden");
     }
 
     let node = svg

@@ -9,6 +9,8 @@
     text-align: left;
     display: flex;
     flex-direction: column;
+    scrollbar-color: var(--accent-dark) var(--main-dark) ;
+    scrollbar-width: thin;
 }
 
 .sticky_img_bot_right{
@@ -31,6 +33,7 @@
     display: flex; 
     justify-content: space-between;
     flex: 1;
+
 
 }
 
@@ -144,6 +147,7 @@
     /* height: 100%; */
     flex: 1;
 
+
 }
 
 .textSubframe {
@@ -152,6 +156,7 @@
     border: 3px solid var(--accent-light);
     border-radius: 0.3rem;
     flex: 1;
+    overflow: auto;
 }
 .right_img{
     max-width: 35%;
@@ -173,4 +178,15 @@
     border: 3px solid var(--accent-light);
     border-radius: 0.3rem;
     object-fit: cover;
+}
+
+.tooltip {
+    background-color: var(--main-light);
+    border-radius: 0.3rem;
+    width: 10rem;
+}
+
+.text_box{
+    flex: 1;
+    margin: 0.5rem;
 }

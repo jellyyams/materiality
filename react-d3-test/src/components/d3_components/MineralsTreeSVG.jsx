@@ -9,7 +9,7 @@ const MineralsTreeSVG = (props) => {
   const height = 350;
   const marginTop = 30;
   const marginBottom = 30;
-  const marginLeft = 50;
+  const marginLeft = 40;
   const marginRight = 30;
 
   useEffect(() => {
@@ -17,6 +17,40 @@ const MineralsTreeSVG = (props) => {
 
     const svg = d3.select(ref.current);
     svg.selectAll("*").remove();
+
+    svg
+      .selectAll("text.heading")
+      .data(["heading"])
+      .join("text")
+      .attr("class", "heading")
+      .attr("transform", "translate (30, 350) rotate(-90)")
+      .attr("text-anchor", "start")
+      .attr("font-size", "14px")
+      .attr("fill", "var(--main-light)")
+      .attr("font-family", "var(--heading-font)")
+      .text("Kg of Key Minerals per MW in Data Centers");
+
+    function setTooltip(hovered_data, event) {
+      const svgRect = ref.current.getBoundingClientRect();
+      const [mouseX, mouseY] = d3.pointer(event, ref.current);
+      const tt = d3.select("#tooltip");
+      tt.style("display", null);
+      tt.attr("transform", `translate(${mouseX + 10},${mouseY - 20})`);
+      d3.select("#tooltip_h").text(hovered_data.name);
+      d3.select("#tooltip_v").text(`${hovered_data.value_actual} kg`);
+    }
+
+    function moveTooltip(event) {
+      const [mouseX, mouseY] = d3.pointer(event, ref.current);
+      d3.select("#tooltip").attr(
+        "transform",
+        `translate(${mouseX + 10},${mouseY - 20})`,
+      );
+    }
+
+    function hideTooltip() {
+      d3.select("#tooltip").style("display", "none");
+    }
 
     d3.csv(filename).then(function (data) {
       // Convert Amount to number
@@ -27,7 +61,7 @@ const MineralsTreeSVG = (props) => {
       // Build hierarchy: root -> Usages -> Minerals
       const usages = Array.from(new Set(data.map((d) => d.Usage)));
       const minerals = Array.from(new Set(data.map((d) => d.Mineral)));
-      console.log(minerals)
+      console.log(minerals);
       const root = {
         name: "root",
         children: usages.map((usage) => ({
@@ -46,7 +80,7 @@ const MineralsTreeSVG = (props) => {
       // Treemap layout
       const treemapLayout = d3
         .treemap()
-        .size([width, height])
+        .size([width - marginLeft, height])
         .paddingInner(2)
         .padding(4)
         .paddingTop(16);
@@ -62,7 +96,16 @@ const MineralsTreeSVG = (props) => {
       const color = d3
         .scaleOrdinal()
         .domain(minerals)
-        .range(d3.schemeCategory10);
+        .range([
+          "#f3908f",
+          "#d79355",
+          "#F5F5F5",
+          "#3634C6",
+          "#00a384",
+          "#0099ce",
+          "#0085ff",
+          "#5d5af7",
+        ]);
 
       // Draw groups for each usage
       const usageGroups = svg
@@ -70,11 +113,9 @@ const MineralsTreeSVG = (props) => {
         .data(hierarchy.children)
         .join("g")
         .attr("class", "usage")
-        .attr("transform", function(d){
-          return `translate(0, 0)`
-        } )
-        ;
-
+        .attr("transform", function (d) {
+          return `translate(${marginLeft}, 0)`;
+        });
       // Draw minerals (leaves)
       usageGroups
         .selectAll("g.mineral")
@@ -88,34 +129,72 @@ const MineralsTreeSVG = (props) => {
             .attr("width", (d) => d.x1 - d.x0)
             .attr("height", (d) => d.y1 - d.y0)
             .attr("class", (d) => d.data.name)
+            .style("opacity", "0.6")
+            .attr("id", (d) => d.data.symbol)
             .attr("fill", function (d) {
-              console.log(d.data.name);
               return color(d.data.name);
             })
-            .on("mouseover", function(e, d){
-              console.log(d.data.name)
+            .on("mouseover", function (event, d) {
+              setTooltip(d.data, event);
+              d3.selectAll(`#${d.data.symbol}`).style("opacity", 1);
             })
-            ;
-
-          // if (d.data.value_actual > 1000) {
-          //   g.append("text")
-          //     .attr("x", 4)
-          //     .attr("y", 16)
-          //     .attr("fill", "#fff")
-          //     .attr("font-size", "12px")
-          //     .text(d.data.name);
-          // }
+            .on("mousemove", function (event, d) {
+              moveTooltip(event);
+            })
+            .on("mouseout", function (event, d) {
+              hideTooltip();
+              d3.selectAll(`#${d.data.symbol}`).style("opacity", 0.6);
+            });
         });
 
       // Draw usage labels
       usageGroups
         .append("text")
         .attr("x", (d) => d.x0 + 5)
-        .attr("y", (d) => d.y0 + 9)
+        .attr("y", (d) => d.y0 + 12)
         .attr("font-size", "12px")
         .attr("font-family", "var(--heading-font)")
         .attr("fill", "var(--main-light)")
         .text((d) => d.data.name);
+
+      const tooltip = svg
+        .selectAll("g#tooltip")
+        .data([null])
+        .join("g")
+        .attr("id", "tooltip")
+        .style("display", "none");
+
+      tooltip
+        .selectAll("rect")
+        .data([""])
+        .join("rect")
+        .attr("fill", "var(--main-light)")
+        .attr("transform", "translate(-3, -15)")
+        .attr("width", 80)
+        .attr("height", 40);
+
+      tooltip
+        .selectAll("text#tooltip_h")
+        .data([""])
+        .join("text")
+        .attr("id", "tooltip_h")
+        .attr("class", "tooltip_text")
+        .attr("y", 0)
+        .attr("font-size", 14)
+        .attr("font-family", "var(--text-font)")
+        .attr("fill", "var(--main-dark)")
+        .attr("font-weight", "bold");
+
+      tooltip
+        .selectAll("text#tooltip_v")
+        .data([""])
+        .join("text")
+        .attr("id", "tooltip_v")
+        .attr("class", "tooltip_text")
+        .attr("font-family", "var(--text-font)")
+        .attr("fill", "var(--main-dark)")
+        .attr("y", 18)
+        .attr("font-size", 13);
     });
   }, [width, filename, height]);
 

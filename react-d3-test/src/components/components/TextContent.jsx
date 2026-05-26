@@ -14,7 +14,7 @@ export default function TextContent(props) {
 
     }
     return(
-        <div>
+        <div className="text_box">
             <h2>
                 {props.title}
             </h2>

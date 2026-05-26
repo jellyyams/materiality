@@ -42,8 +42,8 @@ const EnergyChartSVG = (props) => {
       );
       console.log("grouped", grouped);
 
-      // Create nodes_filtered with values stored by year and type
-      let nodes_filtered = Array.from(grouped, ([type, yearMap]) => {
+      // Create nodes_data with values stored by year and type
+      let nodes_data = Array.from(grouped, ([type, yearMap]) => {
         const valuesByYear = {};
         yearMap.forEach((yearData, year) => {
           valuesByYear[year] = d3.sum(yearData, (d) => +d.TWh);
@@ -56,15 +56,27 @@ const EnergyChartSVG = (props) => {
         };
       });
 
+      console.log(nodes_data)
+
+      const links = [];
+      for (let i = 0; i < nodes_data.length; i++) {
+        for (let j = i + 1; j < nodes_data.length; j++) {
+          links.push({
+            source: nodes_data[i],
+            target: nodes_data[j],
+          });
+        }
+      }
+
       let node = svg
         .selectAll("g.node")
-        .data(nodes_filtered, (d) => d.id)
+        .data(nodes_data, (d) => d.id)
         .join("g")
         .attr("class", "node");
 
       node
         .selectAll("circle")
-        .data(nodes_filtered)
+        .data(nodes_data)
         .join("circle")
         .attr("r", (d) => {
           return d.value / (Math.PI * 1.8);
@@ -84,7 +96,7 @@ const EnergyChartSVG = (props) => {
 
       // Create force simulation
       const simulation = d3
-        .forceSimulation(nodes_filtered)
+        .forceSimulation(nodes_data)
         .force(
           "center",
           d3
@@ -94,6 +106,7 @@ const EnergyChartSVG = (props) => {
             )
             .strength(0.8),
         )
+        .force("link", d3.forceLink(links).strength(0.05))
         .force("charge", d3.forceManyBody().strength(-30))
         .force("collide", d3.forceCollide((d) => d.r + 5).strength(1));
 
@@ -136,7 +149,6 @@ const EnergyChartSVG = (props) => {
       // Draw initial bubbles
       drawBubbles();
 
-      
       const sliderWidth = width - 2 * sliderPadding;
       const sliderY = height - marginBottom;
 
@@ -238,7 +250,7 @@ const EnergyChartSVG = (props) => {
         handle.attr("cx", yearScale(currentYear));
 
         // Update node values based on selected year
-        nodes_filtered.forEach((node) => {
+        nodes_data.forEach((node) => {
           node.value = node.valuesByYear[currentYear] || 0;
         });
 

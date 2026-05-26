@@ -13,10 +13,15 @@
     --border-radius: 0.3rem;
 }
 
+svg {
+  /* position: absolute; */
+}
+
+
 p {
   font-family: "Gothic A1", sans-serif;
   color: var(--main-light); 
-  font-size: 12px;
+  font-size: 13px;
   margin-top: 0rem;
 }
 
