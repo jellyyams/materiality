@@ -38,7 +38,7 @@ export default function Frame2(props) {
               title="Data Centers"
               data={textData.infrastructures.data_centers}
             />
-            <StackedLineSVG parentWidth={frameWidth} height="350" />
+            <StackedLineSVG parentWidth={frameWidth} height="320" />
           </div>
         );
       case "energy":
@@ -48,7 +48,7 @@ export default function Frame2(props) {
               title="Energy Infrastructure"
               data={textData.infrastructures.energy}
             />
-            <EnergyChartSVG parentWidth={frameWidth} height="350" />
+            <EnergyChartSVG parentWidth={frameWidth} height="320" />
           </div>
         );
       case "cabling":
@@ -58,6 +58,7 @@ export default function Frame2(props) {
               title="Cabling Infrastructure"
               data={textData.infrastructures.cabling}
             />
+            <img className = "right_img2" src="/images/cables.jpg"></img>
             
           </div>
         );
@@ -68,6 +69,7 @@ export default function Frame2(props) {
               title="Chips Manufacturing"
               data={textData.infrastructures.chips}
             />
+            <img className = "right_img2" src="/images/chips.jpg"></img>
             
           </div>
         );

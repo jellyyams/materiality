@@ -4,7 +4,7 @@ import dataCenterNodes from "../../data/datacenters.json";
 
 const StackedLineSVG = (props) => {
   const ref = useRef();
-  const width = props.parentWidth/3;
+  const width = props.parentWidth * 0.3;
   const height = props.height;
   const marginTop = 30;
   const marginBottom = 60;
@@ -88,7 +88,9 @@ const StackedLineSVG = (props) => {
         .join("text")
         .attr("class", "xlabel")
         .attr("fill", "var(--main-light)")
-        .attr("transform", `translate(${marginLeftChart}, ${height - 10})`)
+        .attr("font-family", "var(--heading-font)")
+        .attr("font-size", "12px")
+        .attr("transform", `translate(${5}, ${height - 10})`)
         .text("Projected Global Data Center Capacity");
 
       svg
@@ -97,6 +99,7 @@ const StackedLineSVG = (props) => {
         .join("text")
         .attr("class", "ylabel")
         .attr("fill", "var(--main-light)")
+        .attr("font-size", "12px")
         .attr(
           "transform",
           `translate(${5}, ${(height - marginBottom - 40) / 2}) rotate(90)`,
@@ -151,7 +154,7 @@ const StackedLineSVG = (props) => {
             .join("text")
             .attr("x", 18)
             .attr("y", 10)
-            .attr("font-size", "12px")
+            .attr("font-size", "10px")
             .attr("fill", "var(--main-light)")
             .text((m) => fullNames[m]);
         });

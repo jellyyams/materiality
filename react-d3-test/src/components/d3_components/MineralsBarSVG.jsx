@@ -6,20 +6,21 @@ const MineralsBarSVG = (props) => {
   const filename = "/data/minerals.csv";
   const maxYear = 2040;
 
-  const width = props.parentWidth *2/ 5;
-  const height = 500;
+  const width = props.parentWidth * 0.43;
+  const height = 350;
   const marginTop = 80;
-  const marginBottomBar = 200;
+  const marginBottomBar = 100;
   const marginLeft = 50;
   const marginRight = 30;
 
   useEffect(() => {
     if (!ref.current || !width) return;
 
-    let circlesPerRow = 6;
-    const circle_r = 3;
-    const circle_padding = 12;
+    let circlesPerRow;
     let factor = 1;
+
+    const circle_r = 3;
+    const circle_padding = 10;
 
     const svg = d3.select(ref.current);
 
@@ -31,8 +32,10 @@ const MineralsBarSVG = (props) => {
       .join("text")
       .attr("class", "heading")
       .attr("text-anchor", "start")
-      .attr("transform", `translate(${marginLeft / 2}, ${20})`)
+      .attr("transform", `translate(${5}, ${20})`)
       .attr("fill", "var(--main-light)")
+      .attr("font-family", "var(--heading-font)")
+      .attr("font-size", "12px")
       .text(
         `Projected Supply and Demand for ${props.currMineral} in Kilo Tons (kt)`,
       );
@@ -55,10 +58,8 @@ const MineralsBarSVG = (props) => {
         .padding(0.2);
 
       circlesPerRow = Math.floor(
-        xScale.bandwidth() / (circle_r + circle_padding - 5),
+        (xScale.bandwidth()) / (circle_r + circle_padding - 4),
       );
-
-      console.log(filtered);
 
       const yScale = d3.scaleLinear(
         [0, d3.max(filtered, (d) => +d.Demand)],
@@ -104,10 +105,14 @@ const MineralsBarSVG = (props) => {
         .attr("stroke", "var(--accent-dark1)");
 
       if (d3.max(filtered, (d) => +d.Gap_mining) > 100) {
-        if (d3.max(filtered, (d) => +d.Gap_mining) > 1000) {
-          factor = 200;
+        if (d3.max(filtered, (d) => +d.Gap_mining) > 500) {
+          if (d3.max(filtered, (d) => +d.Gap_mining) > 1000) {
+            factor = 600;
+          } else {
+            factor = 15;
+          }
         } else {
-          factor = 10;
+          factor = 3;
         }
       }
 
@@ -118,7 +123,7 @@ const MineralsBarSVG = (props) => {
         .attr("class", "circles")
         .attr("id", (d) => d.Year)
         .attr("transform", (d) => {
-          return `translate(${xScale(+d.Year)}, ${height - marginBottomBar + 50})`;
+          return `translate(${xScale(+d.Year)}, ${height - marginBottomBar + 40})`;
         })
         .each(function (d) {
           const circleData = [];
@@ -128,7 +133,7 @@ const MineralsBarSVG = (props) => {
             positive = false;
           }
 
-          for (let i = 0; i < absolute / factor; i++) {
+          for (let i = 0; i < Math.floor(absolute / factor); i++) {
             circleData.push({
               index: i,
               positive: positive,
@@ -141,7 +146,7 @@ const MineralsBarSVG = (props) => {
             .join("circle")
             .attr("r", circle_r)
             .attr("cx", (cd) => {
-              return (cd.index % circlesPerRow) * circle_padding;
+              return ((cd.index % circlesPerRow) * circle_padding + 3);
             })
             .attr("cy", (cd) => {
               return Math.floor(cd.index / circlesPerRow) * circle_padding + 15;
@@ -154,19 +159,19 @@ const MineralsBarSVG = (props) => {
             .selectAll("text")
             .data([d])
             .join("text")
-            .attr("fill", function(d){
+            .attr("fill", function (d) {
               if (+d.Gap_mining > 0) {
                 return "var(--accent-light)";
               } else {
                 return "var(--main-light)";
               }
             })
-            .attr("font-size", 13)
+            .attr("font-size", 11)
             .text(function (d) {
               if (+d.Gap_mining > 0) {
-                return `${+d.Gap_mining} kt Deficit`;
+                return `${+d.Gap_mining} Deficit`;
               } else {
-                return `${-1* +d.Gap_mining} kt Surplus`;
+                return `${-1 * +d.Gap_mining} Surplus`;
               }
             });
         });
@@ -213,21 +218,41 @@ const MineralsBarSVG = (props) => {
         .selectAll("line")
         .data(["Demand"])
         .join("line")
-        .attr("x1", 60)
-        .attr("x2", 90)
+        .attr("x1", 55)
+        .attr("x2", 85)
         .attr("y1", -5)
         .attr("y2", -5)
         .attr("stroke-width", 3)
         .attr("class", "dashedline")
         .attr("stroke", "var(--accent-dark1)");
 
+      legendGroup
+        .selectAll("circle.legend")
+        .data(["kt"])
+        .join("circle")
+        .attr("class", "legend")
+        .attr("cx", 157)
+        .attr("cy", -5)
+        .attr("fill", "var(--accent-light)")
+        .attr("r", circle_r);
+
       // Add legend items
       legendGroup
         .selectAll("g.legend-item")
-        .data(["Supply", "Demand"], (d) => d)
+        .data(["Supply", "Demand", `${factor} kt`], (d) => d)
         .join("g")
         .attr("class", "legend-item")
-        .attr("transform", (d, i) => `translate(${i * 95},0)`)
+        .attr("transform", function(d, i){
+          if(d === "Demand"){
+            return `translate(${90},0)`
+
+          } else if(d ==="Supply") {
+            return `translate(0,0)`
+
+          } 
+          return `translate(${165},0)`
+
+        })
         .each(function (mineral) {
           d3.select(this)
             .selectAll("text")

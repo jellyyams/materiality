@@ -1,6 +1,7 @@
 {
     "minerals" : {
         "All Minerals" : {
+            "img_file" : "mining.png",
             "paragraphs": [
                 "description of all minerals", 
                 "description of all minerals"
@@ -8,6 +9,7 @@
             ]
         },
         "Copper" : {
+            "img_file" : "cobalt.png",
             "paragraphs": [
                 "description of all Copper", 
                 "description of all Copper"
@@ -15,6 +17,7 @@
             ]
         },
         "Cobalt" : {
+            "img_file" : "cobalt.png",
             "paragraphs": [
                 "description of all Cobalt", 
                 "description of all Cobalt"
@@ -22,13 +25,15 @@
             ]
         },
         "Lithium" : {
+            "img_file" : "lithium.png",
             "paragraphs": [
-                "description of all Lithium", 
+                "Lithium is an essential element for the production of electric batteries.", 
                 "description of all Lithium"
 
             ]
         },
         "Nickel" : {
+            "img_file" : "lithium.png",
             "paragraphs": [
                 "description of all Nickel", 
                 "description of all Nickel"
@@ -36,6 +41,7 @@
             ]
         },
         "REE" : {
+            "img_file" : "lithium.png",
             "paragraphs": [
                 "description of all REE", 
                 "description of all REE"
@@ -43,6 +49,7 @@
             ]
         },
         "Graphite" : {
+            "img_file" : "graphite.png",
             "paragraphs": [
                 "description of all graphite", 
                 "description of all graphite"

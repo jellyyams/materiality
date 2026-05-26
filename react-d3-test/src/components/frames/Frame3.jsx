@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import "../../styles/frame.css";
 import "../../styles/frame3.css";
 import mineralData from "../../data/minerals.json";
-import MineralsLineSVG from "../d3_components/MineralsLineSVG";
+import MineralsTreeSVG from "../d3_components/MineralsTreeSVG";
 import MineralsBarSVG from "../d3_components/MineralsBarSVG";
 import TextContent from "../components/TextContent";
 
@@ -16,18 +16,32 @@ export default function Frame3() {
   console.log(mineralNames);
 
   function SelectedSubframe() {
+    let img_file = mineralData.minerals[currMineral].img_file;
     switch (currMineral) {
       case "All Minerals":
-        return <TextContent data={mineralData.minerals["All Minerals"]}/>;
+        return (
+          <>
+          <div className="flexRow2">
+            <TextContent data={mineralData.minerals["All Minerals"]} />
+            <MineralsTreeSVG parentWidth = {frameWidth}/>
+
+          </div>
+            
+            <img className="mineral_img" src={`/images/${img_file}`}></img>
+          </>
+        );
       default:
         return (
-          <div className="flexRow2">
-            <TextContent data={mineralData.minerals[currMineral]}/>;
-            <MineralsBarSVG
-              currMineral={currMineral}
-              parentWidth={frameWidth}
-            />
-          </div>
+          <>
+            <div className="flexRow2">
+              <TextContent data={mineralData.minerals[currMineral]} />;
+              <MineralsBarSVG
+                currMineral={currMineral}
+                parentWidth={frameWidth}
+              />
+            </div>
+            <img className="mineral_img" src={`/images/${img_file}`}></img>
+          </>
         );
     }
   }

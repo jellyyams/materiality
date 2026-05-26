@@ -28,3 +28,12 @@
     stroke-dasharray: 5.5;
 }
 
+.mineral_img{
+    position: absolute; 
+    bottom:-3rem;
+    left:-3rem;
+    width: 15rem;
+    max-height: 15rem;
+    /* height: 10rem; */
+    object-fit: cover;
+}

@@ -3,11 +3,11 @@ import { useEffect, useRef } from "react";
 
 const EnergyChartSVG = (props) => {
   const ref = useRef();
-  const width = props.parentWidth / 3;
+  const width = props.parentWidth * 0.3;
   const height = props.height;
   const marginTop = 30;
   const marginBottom = 60;
-  const marginLeft = 50;
+  const marginLeft = 20;
   const marginRight = 20;
   const sliderPadding = 50;
 
@@ -26,10 +26,10 @@ const EnergyChartSVG = (props) => {
       .join("text")
       .attr("class", "heading")
       .attr("text-anchor", "start")
-      .attr("transform", `translate(${sliderPadding - 15}, ${height - 5})`)
+      .attr("transform", `translate(${5}, ${height - 5})`)
       .attr("fill", "var(--main-light)")
       .attr("font-family", "var(--heading-font)")
-      .attr("font-size", "12px")
+      .attr("font-size", "11px")
       .text("Global Energy Consumption by Data Centers");
 
     d3.csv(filename).then(function (data) {
