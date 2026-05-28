@@ -3,13 +3,13 @@ import { useEffect, useRef } from "react";
 
 const EnergyChartSVG = (props) => {
   const ref = useRef();
-  const width = props.parentWidth * 0.3;
+  const width = props.parentWidth * 0.45;
   const height = props.height;
-  const marginTop = 30;
-  const marginBottom = 60;
+  const marginTop = 10;
+  const marginBottom = 50;
   const marginLeft = 20;
   const marginRight = 20;
-  const sliderPadding = 50;
+  const sliderPadding = 30;
 
   const filename = "/data/energy.csv";
 
@@ -19,18 +19,6 @@ const EnergyChartSVG = (props) => {
     // Draw ticks for each year
     const validYears = [2023, 2024, 2030, 2035];
     const svg = d3.select(ref.current);
-
-    svg
-      .selectAll("text.heading")
-      .data([""])
-      .join("text")
-      .attr("class", "heading")
-      .attr("text-anchor", "start")
-      .attr("transform", `translate(${5}, ${height - 5})`)
-      .attr("fill", "var(--main-light)")
-      .attr("font-family", "var(--heading-font)")
-      .attr("font-size", "11px")
-      .text("Global Energy Consumption by Data Centers");
 
     d3.csv(filename).then(function (data) {
       let filteredData = data.filter((d) => d.Type !== "Total");
@@ -84,15 +72,6 @@ const EnergyChartSVG = (props) => {
         .attr("fill", "var(--accent-dark)")
         .style("opacity", 1);
 
-      node
-        .selectAll("text")
-        .data((d) => [d])
-        .join("text")
-        .attr("text-anchor", "middle")
-        .attr("dy", "0.3em")
-        .attr("font-size", "12px")
-        .attr("fill", "var(--main-light)")
-        .text((d) => `${d.name}, ${d.value} TWh`);
 
       // Create force simulation
       const simulation = d3
@@ -128,13 +107,25 @@ const EnergyChartSVG = (props) => {
           });
 
         node
-          .selectAll("text")
-          .data((d) => [d])
-          .join("text")
-          .attr("text-anchor", "middle")
-          .attr("dy", "0.3em")
-          .attr("font-size", "12px")
-          .text((d) => `${d.name}, ${d.value} TWh`);
+        .selectAll("text.name")
+        .data((d) => [d])
+        .join("text")
+        .attr("class", "name")
+        .attr("text-anchor", "middle")
+        .attr("font-size", "12px")
+        .attr("fill", "var(--main-light)")
+        .text((d) => `${d.name}`);
+
+      node
+        .selectAll("text.val")
+        .data((d) => [d])
+        .join("text")
+        .attr("class", "val")
+        .attr("text-anchor", "middle")
+        .attr("dy", "1.2rem")
+        .attr("font-size", "12px")
+        .attr("fill", "var(--main-light)")
+        .text((d) => `${d.value} TWh`);
 
         // Update collide force with new radii
         simulation.force(

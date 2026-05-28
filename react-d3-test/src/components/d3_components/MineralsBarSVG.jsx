@@ -6,7 +6,7 @@ const MineralsBarSVG = (props) => {
   const filename = "/data/minerals.csv";
   const maxYear = 2040;
 
-  const width = props.parentWidth * 0.43;
+  const width = props.parentWidth * 0.5;
   const height = 350;
   const marginTop = 80;
   const marginBottomBar = 100;

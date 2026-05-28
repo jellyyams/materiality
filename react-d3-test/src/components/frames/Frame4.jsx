@@ -7,7 +7,7 @@ export default function Frame4() {
       <h1>
         Industry 4.0 & Mining 4.0
       </h1>
-      <div className="textSubframe">
+      <div className="textSubframeBlue">
         <div className="text_only">
           <p>In 2025, seven emerging technologies (AI, blockchain, robotics,
             cloud computing, drones, Internet of Things, and digital twins) saw

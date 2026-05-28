@@ -2,3 +2,13 @@
     width: 35rem;
         margin: 0.5rem;
 }
+
+.right_img{
+    max-width: 35%;
+    position:absolute;
+    bottom: 20%;
+    right:-2%;
+    /* border: var(--border-styling2); */
+    border-radius: 0.3rem;
+
+}

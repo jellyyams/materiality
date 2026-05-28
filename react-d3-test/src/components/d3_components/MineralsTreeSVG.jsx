@@ -5,11 +5,11 @@ const MineralsTreeSVG = (props) => {
   const ref = useRef();
   const filename = "/data/minerals_GW.csv";
 
-  const width = props.parentWidth * 0.45;
-  const height = 350;
-  const marginTop = 30;
+  const width = props.parentWidth * 0.65;
+  const height = 330;
+  const marginTop = 5;
   const marginBottom = 30;
-  const marginLeft = 40;
+  const marginLeft = 10;
   const marginRight = 30;
 
   useEffect(() => {
@@ -17,18 +17,6 @@ const MineralsTreeSVG = (props) => {
 
     const svg = d3.select(ref.current);
     svg.selectAll("*").remove();
-
-    svg
-      .selectAll("text.heading")
-      .data(["heading"])
-      .join("text")
-      .attr("class", "heading")
-      .attr("transform", "translate (30, 350) rotate(-90)")
-      .attr("text-anchor", "start")
-      .attr("font-size", "14px")
-      .attr("fill", "var(--main-light)")
-      .attr("font-family", "var(--heading-font)")
-      .text("Kg of Key Minerals per MW in Data Centers");
 
     function setTooltip(hovered_data, event) {
       const svgRect = ref.current.getBoundingClientRect();
@@ -61,7 +49,7 @@ const MineralsTreeSVG = (props) => {
       // Build hierarchy: root -> Usages -> Minerals
       const usages = Array.from(new Set(data.map((d) => d.Usage)));
       const minerals = Array.from(new Set(data.map((d) => d.Mineral)));
-      console.log(minerals);
+
       const root = {
         name: "root",
         children: usages.map((usage) => ({
@@ -70,7 +58,7 @@ const MineralsTreeSVG = (props) => {
             .filter((d) => d.Usage === usage)
             .map((d) => ({
               name: d.Mineral,
-              value_draw: d.Amount < 100 ? 100 : d.Amount,
+              value_draw: d.Amount < 80 ? 80 : d.Amount,
               value_actual: d.Amount,
               symbol: d.Symbol,
             })),
@@ -80,7 +68,7 @@ const MineralsTreeSVG = (props) => {
       // Treemap layout
       const treemapLayout = d3
         .treemap()
-        .size([width - marginLeft, height])
+        .size([width, height - marginBottom - marginTop])
         .paddingInner(2)
         .padding(4)
         .paddingTop(16);
@@ -102,9 +90,16 @@ const MineralsTreeSVG = (props) => {
           "#F5F5F5",
           "#3634C6",
           "#00a384",
-          "#0099ce",
+          "#0aea6b",
           "#0085ff",
           "#5d5af7",
+          "#9d1a7d",
+          "#533921",
+          "#ce3333",
+          "#ddff00",
+          "#61ffe2",
+          "#4b1f74",
+          "#9ccfff",
         ]);
 
       // Draw groups for each usage
@@ -114,7 +109,7 @@ const MineralsTreeSVG = (props) => {
         .join("g")
         .attr("class", "usage")
         .attr("transform", function (d) {
-          return `translate(${marginLeft}, 0)`;
+          return `translate(${0}, ${marginTop - 5})`;
         });
       // Draw minerals (leaves)
       usageGroups
@@ -125,26 +120,37 @@ const MineralsTreeSVG = (props) => {
         .attr("transform", (d) => `translate(${d.x0} ,${d.y0})`)
         .each(function (d) {
           const g = d3.select(this);
+          const rect_w = d.x1 - d.x0;
+          const rect_h = d.y1 - d.y0;
           g.append("rect")
-            .attr("width", (d) => d.x1 - d.x0)
-            .attr("height", (d) => d.y1 - d.y0)
+            .attr("width", `${rect_w}`)
+            .attr("height", `${rect_h}`)
             .attr("class", (d) => d.data.name)
-            .style("opacity", "0.6")
+            .style("opacity", "1")
             .attr("id", (d) => d.data.symbol)
             .attr("fill", function (d) {
               return color(d.data.name);
             })
             .on("mouseover", function (event, d) {
               setTooltip(d.data, event);
-              d3.selectAll(`#${d.data.symbol}`).style("opacity", 1);
+              d3.selectAll(`#${d.data.symbol}`)
+                .style("stroke-width", "2")
+                .style("stroke", "red");
             })
             .on("mousemove", function (event, d) {
               moveTooltip(event);
             })
             .on("mouseout", function (event, d) {
               hideTooltip();
-              d3.selectAll(`#${d.data.symbol}`).style("opacity", 0.6);
+              d3.selectAll(`#${d.data.symbol}`).style("stroke-width", "0");
             });
+
+          if (rect_w > 30 && rect_h > 20) {
+            g.append("text")
+              .text((d) => d.data.symbol)
+              .attr("transform", "translate(5, 19)")
+              .attr("fill", "var(--main-dark)");
+          }
         });
 
       // Draw usage labels
@@ -195,6 +201,46 @@ const MineralsTreeSVG = (props) => {
         .attr("fill", "var(--main-dark)")
         .attr("y", 18)
         .attr("font-size", 13);
+      // Create legend
+      const legendGroup = svg
+        .selectAll("g.legend")
+        .data([null])
+        .join("g")
+        .attr("class", "legend")
+        .attr("transform", `translate(${10}, ${marginTop})`);
+
+      legendGroup
+        .selectAll("g.legend-item")
+        .data(minerals, (d) => d)
+        .join("g")
+        .attr("class", "legend-item")
+        .attr("transform", function (d, i) {
+          const rownum = Math.floor(i / 8);
+          return `translate(${(i % 8) * 80}, ${height - 20 - rownum * 20})`;
+        })
+        .each(function (label) {
+          const item = d3.select(this);
+
+          // Add color square
+          item
+            .selectAll("rect")
+            .data([label])
+            .join("rect")
+            .attr("width", 12)
+            .attr("height", 12)
+            .attr("fill", (label) => color(label));
+
+          // Add label
+          item
+            .selectAll("text")
+            .data([label])
+            .join("text")
+            .attr("x", 18)
+            .attr("y", 10)
+            .attr("font-size", "10px")
+            .attr("fill", "var(--main-light)")
+            .text((m) => m);
+        });
     });
   }, [width, filename, height]);
 

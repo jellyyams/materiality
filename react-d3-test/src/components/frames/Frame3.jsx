@@ -20,15 +20,13 @@ export default function Frame3() {
     switch (currMineral) {
       case "All Minerals":
         return (
-          <>
-          <div className="flexRow2">
-            <TextContent data={mineralData.minerals["All Minerals"]} />
-            <MineralsTreeSVG parentWidth = {frameWidth}/>
-
+          <div>
+            <h2>Kilograms of Key Minerals per MW of Data Center</h2>
+            <div className="flexRow2">
+              <MineralsTreeSVG parentWidth={frameWidth} />
+              <TextContent data={mineralData.minerals["All Minerals"]} />
+            </div>
           </div>
-            
-            <img className="mineral_img" src={`/images/${img_file}`}></img>
-          </>
         );
       default:
         return (
@@ -89,7 +87,7 @@ export default function Frame3() {
       <div className="flexRow">
         <MineralButtons />
       </div>
-      <div className="textSubframe">
+      <div className="textSubframePink">
         <SelectedSubframe />
       </div>
     </div>

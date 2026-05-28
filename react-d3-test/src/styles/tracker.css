@@ -1,29 +1,46 @@
-.dot {
-  height: 0.8rem;
+.dots span{
+    height: 0.8rem;
   width: 0.8rem;
-  background-color: var(--main-light);
   border-radius: 50%;
   display: inline-block;
   margin: 0.5rem;
   cursor: pointer;
+  background-color: var(--main-dark);
+
 }
 
-.dot:hover{
+.dot_pink {
+  border: var(--border-styling1);
+
+}
+
+.dot_blue {
+  border: 3px solid var(--accent-dark1);
+}
+
+.dot_white {
+  border: 3px solid var(--main-light);
+}
+
+.dots span:hover{
     height: 1rem;
   width: 1rem;
 
 }
 
+.dot_blue_selected{
+    background-color: var(--accent-dark1) !important;
+    border: 3px solid var(--accent-dark1);
+}
 
-.dot_selected{
-    background-color: var(--accent-light);
-    height: 0.8rem;
-  width: 0.8rem;
-     border-radius: 50%;
-     display: inline-block;
-     margin: 0.5rem;
-    cursor: pointer;
+.dot_pink_selected{
+    background-color: var(--accent-light) !important;
+    border: 3px solid var(--accent-light);
+}
 
+.dot_white_selected{
+    background-color: var(--main-light) !important;
+    border: 3px solid var(--main-light);
 }
 
 .dot_selected:hover{

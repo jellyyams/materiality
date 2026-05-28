@@ -9,6 +9,7 @@ export default function Frame2(props) {
   const frameRef = useRef();
   const [subFrame, setSubframe] = useState("data_centers");
   const [frameWidth, setFrameWidth] = useState(0);
+  const [frameHeight, setHeight] = useState(280); 
 
   useEffect(() => {
     // Initialize width on mount
@@ -33,23 +34,28 @@ export default function Frame2(props) {
     switch (subFrame) {
       case "data_centers":
         return (
-          <div className="flexRow2">
-            <TextContent
-              title="Data Centers"
+          <div>
+            <h2>Projected Global Data Center Capacity</h2>
+            <div className="flexRow2">
+              <StackedLineSVG parentWidth={frameWidth} height={frameHeight} />
+              <TextContent
               data={textData.infrastructures.data_centers}
             />
-            <StackedLineSVG parentWidth={frameWidth} height="320" />
+              </div>
           </div>
         );
       case "energy":
         return (
-          <div className="flexRow2">
-            <TextContent
-              title="Energy Infrastructure"
+          <div>
+            <h2>Projected Global Data Center Capacity</h2>
+            <div className="flexRow2">
+              <EnergyChartSVG parentWidth={frameWidth} height={frameHeight}  />
+               <TextContent
               data={textData.infrastructures.energy}
             />
-            <EnergyChartSVG parentWidth={frameWidth} height="320" />
+              </div>
           </div>
+          
         );
       case "cabling":
         return (
@@ -58,8 +64,7 @@ export default function Frame2(props) {
               title="Cabling Infrastructure"
               data={textData.infrastructures.cabling}
             />
-            <img className = "right_img2" src="/images/cables.jpg"></img>
-            
+            <img className="right_img2" src="/images/cables.jpg"></img>
           </div>
         );
       case "chips":
@@ -69,8 +74,7 @@ export default function Frame2(props) {
               title="Chips Manufacturing"
               data={textData.infrastructures.chips}
             />
-            <img className = "right_img2" src="/images/chips.jpg"></img>
-            
+            <img className="right_img2" src="/images/chips.jpg"></img>
           </div>
         );
       default:
