@@ -1,14 +1,38 @@
 .text_only {
     width: 35rem;
         margin: 0.5rem;
+    position: relative;
 }
 
-.right_img{
-    max-width: 35%;
-    position:absolute;
-    bottom: 20%;
-    right:-2%;
-    /* border: var(--border-styling2); */
-    border-radius: 0.3rem;
+.text_only p{
+    font-size: 14px;
+}
 
+
+.img_1{
+    bottom: 24rem;
+    right:-3rem;
+     max-width: 30%;
+    position:absolute;
+     border-radius: 0.3rem;
+    border: var(--border-styling2);
+}
+
+.img_2{
+    bottom: 13rem;
+    right:4rem;
+     max-width: 30%;
+    position:absolute;
+     border-radius: 0.3rem;
+    border: var(--border-styling2);
+}
+
+
+.img_4{
+    bottom: -1rem;
+    right:-3rem;
+     max-width: 30%;
+    position:absolute;
+     border-radius: 0.3rem;
+    border: var(--border-styling2);
 }

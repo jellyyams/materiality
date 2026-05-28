@@ -7,7 +7,7 @@ import "../../styles/frame.css";
 const TechnologiesSVG = (props) => {
   const ref = useRef();
 
-  const width = (props.parentWidth * 3) / 5;
+  const width = props.parentWidth * 0.65;
   const height = props.height;
   const base_r = 10;
   const yearStart = 2025;
@@ -40,6 +40,7 @@ const TechnologiesSVG = (props) => {
       d3.select("#tech_heading").text(currTech);
       d3.select("#tech_text1").text("");
       d3.select("#tech_text2").text("");
+      d3.select("#tech_text3").text("");
       for(let i = 0; i <currTech_data.description.length; i++){
         d3.select(`#tech_text${i}`).text(currTech_data.description[i]);
 

@@ -14,7 +14,7 @@ const StackedLineSVG = (props) => {
   const filename = "/data/datacenters.csv";
 
   const fullNames = {
-    America: "America",
+    America: "Americas",
     EMEA: "Europe, Middle East, Africa",
     APAC: "Asia-Pacific",
   };
@@ -128,7 +128,7 @@ const StackedLineSVG = (props) => {
         .attr("class", "legend")
         .attr("transform", `translate(${10}, ${marginTop})`);
 
-      const lengths = [0, 70, 235];
+      const lengths = [0, 75, 235];
       // Add legend items
       legendGroup
         .selectAll("g.legend-item")

@@ -6,8 +6,7 @@
             "2025": 539,
             "growth_rate": 1.306,
             "description": [
-                "While the field of artificial intelligence and machine learning has been steadily progressing since the latter half of the 20th century, the release of ChatGPT in 2022 brought Large Language Models (LLMs) and generative AI models into the mainstream. Infamously, spending and investment in AI continues to reach new records, with an estimated 1.5 trillion USD spent in 2025. In terms of market size, the AI market sits below Internet of Things and Cloud Computing today at 539 billion USD with a CAGR of 30.6%.",
-                "While industry actors and Silicon Valley seem optimistic about the future of AI, others remain uncertain about its social, economic, and environmental consequences. "
+                "While the field of artificial intelligence and machine learning has been steadily progressing since the latter half of the 20th century, the release of ChatGPT in 2022 brought Large Language Models (LLMs) and generative AI models into the mainstream. Infamously, spending and investment in AI continues to reach new records, with an estimated 1.5 trillion USD spent in 2025. In terms of market size, the AI market sits below Internet of Things and Cloud Computing today at 539 billion USD with a CAGR of 30.6%."
             ],
             "img_file": "server.png.webp",
             "img_class": "sticky_img_bot_right_small"
@@ -18,8 +17,7 @@
             "2025": 21.14,
             "growth_rate": 1.479,
             "description": [
-                "While the field of artificial intelligence and machine learning has been steadily progressing since the latter half of the 20th century, the release of ChatGPT in 2022 brought Large Language Models (LLMs) and generative AI models into the mainstream. Infamously, spending and investment in AI continues to reach new records, with an estimated 1.5 trillion USD spent in 2025. In terms of market size, the AI market sits below Internet of Things and Cloud Computing today at 539 billion USD with a CAGR of 30.6%.",
-                "While industry actors and Silicon Valley seem optimistic about the future of AI, others remain uncertain about its social, economic, and environmental consequences. "
+                "A digital twin is a computational model that’s meant to represent a real-world physical product, system or process. It serves as a digital counterpart that can be used for simulation, testing, and monitoring. While digital twins have technically been around since the 1960s, with NASA’s simulators of Apollo missions, the rise of IoT, cloud computing, AI, and real-time 3D environments have catalyzed investment and interest in the digital twin industry. Proponents are exploring use cases in product development and prototyping, autonomous simulations, immersive safety training, and much more."
             ],
             "img_file": "server.png.webp",
             "img_class": "sticky_img_bot_right_small"
@@ -30,8 +28,7 @@
             "2025": 41.15,
             "growth_rate": 1.504,
             "description": [
-                "While the field of artificial intelligence and machine learning has been steadily progressing since the latter half of the 20th century, the release of ChatGPT in 2022 brought Large Language Models (LLMs) and generative AI models into the mainstream. Infamously, spending and investment in AI continues to reach new records, with an estimated 1.5 trillion USD spent in 2025. In terms of market size, the AI market sits below Internet of Things and Cloud Computing today at 539 billion USD with a CAGR of 30.6%.",
-                "While industry actors and Silicon Valley seem optimistic about the future of AI, others remain uncertain about its social, economic, and environmental consequences. "
+               "Blockchain operates as a decentralized distributed database with data stored across multiple computers. The way blockchain computing systems are designed make it resistant to alternation and tampering, thus blockchains are often considered secure by design. The most notable and widespread use case of blockchain technology is cryptocurrencies, however proponents are also working towards use cases in supply chain management, digital identity, and healthcare. Ultimately, the hope is that blockchain technology eliminates the need for central authorities to verify and legitimize data transactions. Today, blockchain has a market size of around 41 billion usd and a CAGR of 50.4%."
             ],
             "img_file": "server.png.webp",
             "img_class": "sticky_img_bot_right_small"
@@ -42,8 +39,7 @@
             "2025": 943,
             "growth_rate": 1.16,
             "description":[
-                "While the field of artificial intelligence and machine learning has been steadily progressing since the latter half of the 20th century, the release of ChatGPT in 2022 brought Large Language Models (LLMs) and generative AI models into the mainstream. Infamously, spending and investment in AI continues to reach new records, with an estimated 1.5 trillion USD spent in 2025. In terms of market size, the AI market sits below Internet of Things and Cloud Computing today at 539 billion USD with a CAGR of 30.6%.",
-                "While industry actors and Silicon Valley seem optimistic about the future of AI, others remain uncertain about its social, economic, and environmental consequences. "
+               "Cloud computing is the delivery of computing services (such as servers, databases, analytics, and intelligence) over the internet. Although its name might lend the impression that its material footprint is negligible or irrelevant, cloud computing takes place on physical servers that require physical maintenance, monitoring, powering, and cooling. Cloud computing first entered the conversation in technology circles in the early 2000s, and today it’s a 943 billion dollar industry. Cloud computing services are considered critical digital infrastructure– every major online service from social media to e-commerce sites to gaming utilize cloud services in some form."
             ],
             "img_file": "server.png.webp",
             "img_class": "sticky_img_bot_right_small"
@@ -54,10 +50,10 @@
             "2025": 1596,
             "growth_rate": 1.089,
             "description": [
-                "While the field of artificial intelligence and machine learning has been steadily progressing since the latter half of the 20th century, the release of ChatGPT in 2022 brought Large Language Models (LLMs) and generative AI models into the mainstream. Infamously, spending and investment in AI continues to reach new records, with an estimated 1.5 trillion USD spent in 2025. In terms of market size, the AI market sits below Internet of Things and Cloud Computing today at 539 billion USD with a CAGR of 30.6%.",
-                "While industry actors and Silicon Valley seem optimistic about the future of AI, others remain uncertain about its social, economic, and environmental consequences. "
+                "Internet of things (IoT) refers to a network of physical devices, vehicles, appliances that contain sensors, software, and network connectivity, allowing them to collect and share data. Devices such as smart speakers, smart fridges, remote controlled thermostats and security systems, etc. are all examples of IoT technologies. The data that’s collected and generated from IoT devices are stored, processed, and analyzed using cloud computing services and advanced analytics tools. Thus the material footprint of IoT technologies emerges from the individual devices themselves as well as the vast network of servers and computing infrastructure that devices are connected to.", 
+                "Today, the IoT industry has a global market size of 1.5 trillion usd, and a compound annual growth rate of 8.9%. "
             ],
-            "img_file": "server.png.webp",
+            "img_file": "echo.png",
             "img_class": "sticky_img_bot_right_small"
         },
         {
@@ -66,8 +62,7 @@
             "2025": 53.1,
             "growth_rate": 1.176,
             "description": [
-                "While the field of artificial intelligence and machine learning has been steadily progressing since the latter half of the 20th century, the release of ChatGPT in 2022 brought Large Language Models (LLMs) and generative AI models into the mainstream. Infamously, spending and investment in AI continues to reach new records, with an estimated 1.5 trillion USD spent in 2025. In terms of market size, the AI market sits below Internet of Things and Cloud Computing today at 539 billion USD with a CAGR of 30.6%.",
-                "While industry actors and Silicon Valley seem optimistic about the future of AI, others remain uncertain about its social, economic, and environmental consequences. "
+                "The robotics market is expected to witness significant growth, reaching a projected value of more than 100 billion by 2030. Research suggests that integration with AI and advanced automation is driving investment in the industry. While industrial robots are the traditional core of the industry, mobile robots and humanoid robots are some of the fastest growing market segments."
             ],
             "img_file": "robot_dog.png",
             "img_class": "sticky_img_bot_right"
@@ -78,8 +73,7 @@
             "2025": 83.8,
             "growth_rate": 1.095,
             "description":[
-                "While the field of artificial intelligence and machine learning has been steadily progressing since the latter half of the 20th century, the release of ChatGPT in 2022 brought Large Language Models (LLMs) and generative AI models into the mainstream. Infamously, spending and investment in AI continues to reach new records, with an estimated 1.5 trillion USD spent in 2025. In terms of market size, the AI market sits below Internet of Things and Cloud Computing today at 539 billion USD with a CAGR of 30.6%.",
-                "While industry actors and Silicon Valley seem optimistic about the future of AI, others remain uncertain about its social, economic, and environmental consequences. "
+                "The global drone industry is experiencing rapid expansion, with a current global market size of 84 billion usd and a compound annual growth rate of 9.5%. Drones have found a variety of use cases including in the agriculture industry (to monitor crop health and target pesticide spraying), the logistics industry (with last-mile delivery services), and, of course, the military and defence industry."
             ],
             "img_file": "drone.png",
             "img_class": "sticky_img_bot_right"

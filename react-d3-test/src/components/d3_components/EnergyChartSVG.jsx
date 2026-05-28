@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 
 const EnergyChartSVG = (props) => {
   const ref = useRef();
-  const width = props.parentWidth * 0.45;
+  const width = props.parentWidth * 0.38;
   const height = props.height;
   const marginTop = 10;
   const marginBottom = 50;

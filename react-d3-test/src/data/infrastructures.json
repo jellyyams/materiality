@@ -2,23 +2,25 @@
     "infrastructures": {
         "data_centers": {
             "paragraphs": [
-                "ease of ChatGPT in 2022age Models (LLMs) and generative AI models into the mainstream. Infamously, spending and investment in AI continues to reach new records, with an estimated 1.5 trillion USD spent in 2025. In terms of market size, the AI market sits below Internet of Things and Cloud Computing today at 539 billion USD with a CAGR of 30.6%."
+                "About 100GW of new data centers will be added between 2025 and 2030, doubling global capacity. For reference 1 GW is equivalent to about 20 - 50 individual datacenters. Much of this expansion can be attributed to projected demand for AI. The Americas is the largest data center region representing about 50% of global capacity."
             ]
         }, 
         "cabling": {
             "paragraphs": [
-                "mainstream.stment in AI continues to reach new records, with an estimated 1.5 trillion USD spent in 2025. In terms of market size, the AI market sits below Internet of Things and Cloud Computing today at 539 billion USD with a CAGR of 30.6%.",
-                "While the y progressing since the latter half of the 2f ChatGPT in 2022 brought Large Language Models (LLMs) and generative AI models into the mainstream. Infamously, spending and investment in AI continues to reach new records, with an estimated 1.5 trillion USD spent in 2025. In terms of market size, the AI market sits below Internet of Things and Cloud Computing today at 539 billion USD with a CAGR of 30.6%."
+                "The submarine cable system involves underwater cables used primarily for data transmission and power supply. Currently, there are over 570 subsea cable systems worldwide (with another 81 planned), stretching a collective length over 1.5 million kilometers. This market is projected to grow from 19.95 billion usd in 2025 to 33.75 billion by 2030 due to rising global data traffic, offshore wind projects, and cross-border power transmission needs.",
+                "Tech giants such as Microsoft, Google, Meta, and Amazon are also investing aggressively in and building private fiber-optic networks to link international data centers and meet the massive bandwidth requirements of cloud computing and global AI operations. "
             ]
         }, 
         "chips": {
             "paragraphs": [
-                "While the field of artificial intelligence and machine learning has been steadily progressing since the latter half of the 20th century, the release of ChatGPT in 2022 brought Large Language Models (LLMs)mainstream. Infamously, spending and investment in AI continues to reach new records, with an estimated 1.5 trillion USD spent in 2025. In terms of market size, the AI market sits below Internet of Things and Cloud Computing today at 539 billion USD with a CAGR of 30.6%."
+                "Semiconductors are essential components for everything from smartphones to wearable devices to data centers. As emerging technology markets grow, so too does demand for computing resources and semiconductor components. ",
+                "The semiconductor supply chain is a highly complex and globally distributed process, involving a variety of actors and hundreds of individual steps. Semiconductor manufacturing also requires a highly specialized suite of raw materials and chemical inputs, from foundational elements and critical minerals to ultra-pure gases and special polymers."
             ]
         }, 
         "energy": {
             "paragraphs": [
-                "=usly, spending and investment in AI continues to reach new records, with an estimated 1.5 trillion USD spent in 2025. In terms of market size, the AI market sits below Internet of Things and Cloud Computing today at 539 billion USD with a CAGR of 30.6%."
+                "Electricity consumption for data centers is projected to reach 1193 TWh by 2035. For reference, 1 TWh is enough to supply 90,000 average homes with electricity for an entire year. ",
+                "The visualization accounts for three main types of data centers– Hyperscale (serves needs of cloud agility and cost efficiency for tech giants), Enterprise (tailored, private facilities built for individual businesses), Colocation and Service Provider (multiple businesses rent space for their servers)."
             ]
         }
     }

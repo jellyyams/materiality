@@ -68,7 +68,7 @@ const MineralsTreeSVG = (props) => {
       // Treemap layout
       const treemapLayout = d3
         .treemap()
-        .size([width, height - marginBottom - marginTop])
+        .size([width - marginRight, height - marginBottom - marginTop])
         .paddingInner(2)
         .padding(4)
         .paddingTop(16);
@@ -135,7 +135,7 @@ const MineralsTreeSVG = (props) => {
               setTooltip(d.data, event);
               d3.selectAll(`#${d.data.symbol}`)
                 .style("stroke-width", "2")
-                .style("stroke", "red");
+                .style("stroke", "var(--accent-light)");
             })
             .on("mousemove", function (event, d) {
               moveTooltip(event);

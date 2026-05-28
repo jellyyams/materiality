@@ -1,9 +1,10 @@
-.center {
+.center_text {
     position:fixed; 
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 20%;
+    width: 23rem;
+    text-align: left;
 
 }
 
@@ -34,13 +35,13 @@
 
 .box_top {
     left: 50%;
-    top: 15%;
+    top: 12%;
    border: 3px dashed var(--accent-dark1);
 }
 
 .box_bottom {
     left: 50%;
-    top: 85%;
+    top: 88%;
     border: 3px solid var(--accent-light);
     
 }

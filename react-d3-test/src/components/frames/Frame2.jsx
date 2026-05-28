@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import "../../styles/frame.css";
+import "../../styles/frame2.css"
 import EnergyChartSVG from "../d3_components/EnergyChartSVG";
 import StackedLineSVG from "../d3_components/StackedLineSVG";
 import TextContent from "../components/TextContent";
@@ -47,7 +48,7 @@ export default function Frame2(props) {
       case "energy":
         return (
           <div>
-            <h2>Projected Global Data Center Capacity</h2>
+            <h2>Global Energy Consumption of Data Centers</h2>
             <div className="flexRow2">
               <EnergyChartSVG parentWidth={frameWidth} height={frameHeight}  />
                <TextContent
@@ -93,16 +94,21 @@ export default function Frame2(props) {
   return (
     <div className="frame" ref={frameRef}>
       <h1>
-        Material Infrastructures and Components needed for emerging technologies
+        Material Infrastructures and Components Needed for Emerging Technologies
       </h1>
       <div className="flexParent">
         <div className="smallColumn1">
           <p>
             To support the projected growth and investment in emerging
-            technologies, enormous scales of material infrastructure need to be
-            invested in as well, all the way from raw material extraction to
+            technologies, we will also need to invest in and scale material infrastructure, all the way from raw material extraction to
             data center construction.
           </p>
+          <div className="lines">
+            <div className="line1"></div>
+            <div className="line2"></div>
+            <div className="line3"></div>
+            <div className="line4"></div>
+          </div>
           <div className="buttonsCol">
             <p
               className={subFrame === "energy" ? "selected_label" : ""}

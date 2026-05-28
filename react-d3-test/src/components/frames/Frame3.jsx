@@ -82,7 +82,7 @@ export default function Frame3() {
 
   return (
     <div className="frame" ref={frameRef}>
-      <h1>Mineral Extraction for Emerging Technology Infrastructures</h1>
+      <h1>Key Metals and Minerals Needed for Technology Infrastructures</h1>
 
       <div className="flexRow">
         <MineralButtons />

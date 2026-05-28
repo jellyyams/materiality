@@ -35,21 +35,21 @@ export default function Frame1() {
         <div className="smallColumn2">
           <h2 id="tech_heading">Invest Now!</h2>
           <p id="tech_text0">
-            In 2025, seven emerging technologies (AI, blockchain, robotics,
-            cloud computing, drones, Internet of Things, and digital twins) saw
+            In 2025, seven emerging technologies saw
             an estimated market size of <b>3.3 trillion usd</b>. Collectively, that
             exceeds the market size of the entire global aviation industry and
             automobile industries combined. According to estimated compound
             annual growth rates (CAGR), these industries are only projected to
             grow, with a collective market size reaching <b>7.2 trillion usd</b> by
-            2030. These numbers might not mean much to the average layperson,
+            2030. 
+          </p>
+          <p id="tech_text1">These numbers might not mean much to the average layperson,
             but for investors, business leaders, and other major economic
             players, it signals a belief that these industries will command
             enormous demand in the next 5 years, and that it’s important to
-            invest in them today.
-          </p>
-          <p id="tech_text1">Click on each technology bubble on the left to read more.</p>
-          <p id="tech_text2"></p>
+            invest in them today.</p>
+
+          <p id="tech_text2">Click on each technology bubble on the left to read more.</p>
           <img id="tech_image" src="/images/server.png.webp" className="sticky_img_bot_right_small"></img>
         </div>
       </div>
