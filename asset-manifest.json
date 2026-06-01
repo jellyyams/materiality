@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/materiality/static/css/main.f20aa68e.css",
+    "main.js": "/materiality/static/js/main.4dc2e3bb.js",
+    "static/js/453.e2dbd148.chunk.js": "/materiality/static/js/453.e2dbd148.chunk.js",
+    "index.html": "/materiality/index.html",
+    "main.f20aa68e.css.map": "/materiality/static/css/main.f20aa68e.css.map",
+    "main.4dc2e3bb.js.map": "/materiality/static/js/main.4dc2e3bb.js.map",
+    "453.e2dbd148.chunk.js.map": "/materiality/static/js/453.e2dbd148.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f20aa68e.css",
+    "static/js/main.4dc2e3bb.js"
+  ]
+}
