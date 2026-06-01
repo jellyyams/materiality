@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 
 const MineralsBarSVG = (props) => {
   const ref = useRef();
-  const filename = "/data/minerals.csv";
+  const filename = `${import.meta.env.BASE_URL}data/minerals.csv`;
   const maxYear = 2040;
 
   const width = props.parentWidth * 0.5;

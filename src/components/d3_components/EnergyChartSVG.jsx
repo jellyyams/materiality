@@ -11,7 +11,7 @@ const EnergyChartSVG = (props) => {
   const marginRight = 20;
   const sliderPadding = 30;
 
-  const filename = "/data/energy.csv";
+  const filename = `${import.meta.env.BASE_URL}data/energy.csv`;
 
   useEffect(() => {
     if (!ref.current || !width) return;

@@ -11,7 +11,7 @@ const StackedLineSVG = (props) => {
   const marginLeftChart = 50;
   const marginLeft = 5;
   const marginRight = 30;
-  const filename = "/data/datacenters.csv";
+  const filename = `${import.meta.env.BASE_URL}data/datacenters.csv`;
 
   const fullNames = {
     America: "Americas",
