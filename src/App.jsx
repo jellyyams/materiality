@@ -16,9 +16,6 @@ function App() {
     console.log(document.documentElement.scrollTop);
     console.log(window.pageYOffset);
     console.log("scrolled");
-    // if( window.scrollY >= 23.5){
-    //   nextFrame();
-    // }
   };
 
   function nextFrame(){
