@@ -19,10 +19,10 @@ export default function Frame5(props) {
           <h3 className="color2">Mining 4.0</h3>
         </div>
 
-        <img className="top_left" src={"/images/dashed_arrow.png"}></img>
-        <img className="bottom_right" src={"/images/dashed_arrow.png"}></img>
-        <img className="top_right" src={"/images/solid_arrow.png"}></img>
-        <img className="bottom_left" src={"/images/solid_arrow.png"}></img>
+        <img className="top_left" src={`${import.meta.env.BASE_URL}images/dashed_arrow.png`}></img>
+        <img className="bottom_right" src={`${import.meta.env.BASE_URL}images/dashed_arrow.png`}></img>
+        <img className="top_right" src={`${import.meta.env.BASE_URL}images/solid_arrow.png`}></img>
+        <img className="bottom_left" src={`${import.meta.env.BASE_URL}images/solid_arrow.png`}></img>
       </div>
       <div className="center_text">
         <h2>The Technology Treadmill</h2>

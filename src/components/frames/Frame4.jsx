@@ -43,9 +43,9 @@ export default function Frame4() {
           </p>
         </div>
 
-        <img className="img_1" src={"/images/Mining1.webp"}></img>
-        <img className="img_2" src={"/images/Mining4.png"}></img>
-        <img className="img_4" src={"/images/robotics_mining.jpg"}></img>
+        <img className="img_1" src={`${import.meta.env.BASE_URL}images/Mining1.webp`}></img>
+        <img className="img_2" src={`${import.meta.env.BASE_URL}images/Mining4.png`}></img>
+        <img className="img_4" src={`${import.meta.env.BASE_URL}images/robotics_mining.jpg`}></img>
       </div>
     </div>
   );

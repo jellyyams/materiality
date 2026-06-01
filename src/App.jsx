@@ -57,12 +57,12 @@ function App() {
             <img
               className="largeArrowLeft"
               alt="a large arrow"
-              src={"/images/dashed_arrow_large.png"}
+              src={`${import.meta.env.BASE_URL}images/dashed_arrow_large.png`}
             ></img>
             <img
               className="largeArrowRight"
               alt="a large arrow"
-              src={"/images/solid_arrow_large.png"}
+              src={`${import.meta.env.BASE_URL}images/solid_arrow_large.png`}
             ></img>
           </>
         );
@@ -72,12 +72,12 @@ function App() {
             <img
               className="largeArrowTop"
               alt="a large arrow"
-              src={"/images/solid_arrow_large.png"}
+              src={`${import.meta.env.BASE_URL}images/solid_arrow_large.png`}
             ></img>
             <img
               className="largeArrowBottom"
               alt="a large arrow"
-              src={"/images/solid_arrow_large.png"}
+              src={`${import.meta.env.BASE_URL}images/solid_arrow_large.png`}
             ></img>
           </>
         );
@@ -87,12 +87,12 @@ function App() {
             <img
               className="largeArrowRightBottom"
               alt="a large arrow"
-              src={"/images/solid_arrow_large.png"}
+              src={`${import.meta.env.BASE_URL}images/solid_arrow_large.png`}
             ></img>
             <img
               className="largeArrowLeftBottom"
               alt="a large arrow"
-              src={"/images/dashed_arrow_large.png"}
+              src={`${import.meta.env.BASE_URL}images/dashed_arrow_large.png`}
             ></img>
           </>
         );
@@ -103,12 +103,12 @@ function App() {
             <img
               className="largeArrowTopLeft"
               alt="a large arrow"
-              src={"/images/dashed_arrow_large.png"}
+              src={`${import.meta.env.BASE_URL}images/dashed_arrow_large.png`}
             ></img>
             <img
               className="largeArrowBottomLeft"
               alt="a large arrow"
-              src={"/images/dashed_arrow_large.png"}
+              src={`${import.meta.env.BASE_URL}images/dashed_arrow_large.png`}
             ></img>
           </>
         );

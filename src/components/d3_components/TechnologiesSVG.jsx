@@ -45,7 +45,7 @@ const TechnologiesSVG = (props) => {
         d3.select(`#tech_text${i}`).text(currTech_data.description[i]);
 
       }
-      d3.select("#tech_image").attr("src", `/images/${currTech_data.img_file}`).attr("class", currTech_data.img_class );
+      d3.select("#tech_image").attr("src", `${import.meta.env.BASE_URL}images/${currTech_data.img_file}`).attr("class", currTech_data.img_class );
     }
 
     function setTooltip(hoveredTech) {

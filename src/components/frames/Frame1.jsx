@@ -50,7 +50,7 @@ export default function Frame1() {
             invest in them today.</p>
 
           <p id="tech_text2">Click on each technology bubble on the left to read more.</p>
-          <img id="tech_image" src={"/images/server.png.webp"} className="sticky_img_bot_right_small"></img>
+          <img id="tech_image" src={`${import.meta.env.BASE_URL}images/server.png.webp`} className="sticky_img_bot_right_small"></img>
         </div>
       </div>
     </div>

@@ -38,7 +38,7 @@ export default function Frame3() {
                 parentWidth={frameWidth}
               />
             </div>
-            <img className="mineral_img" src={`/images/${img_file}`}></img>
+            <img className="mineral_img" src={`${import.meta.env.BASE_URL}images/${img_file}`}></img>
           </>
         );
     }
