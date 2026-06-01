@@ -16,7 +16,18 @@ function App() {
     console.log(document.documentElement.scrollTop);
     console.log(window.pageYOffset);
     console.log("scrolled");
+    // if( window.scrollY >= 23.5){
+    //   nextFrame();
+    // }
   };
+
+  function nextFrame(){
+    if(frameNum > 4){
+      setFrame(1)
+    } else {
+      setFrame(frameNum + 1)
+    }
+  }
 
   useEffect(() => {
     window.addEventListener("wheel", handleScroll);
@@ -117,7 +128,9 @@ function App() {
 
         </div>
         
-        <SelectedFrame />
+        <div key={frameNum} className="fade-in-frame">
+          <SelectedFrame />
+        </div>
       </div>
       <SideTracker currFrame={frameNum} setFrame={setFrame} />
     </div>

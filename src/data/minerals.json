@@ -25,8 +25,9 @@
         "Lithium" : {
             "img_file" : "lithium.png",
             "paragraphs": [
-                "Copper underpins all electrical infrastructure from battery storage systems to cooling systems in data centers to power grids. While demand for Copper surges, supply is projected to decrease in the coming decade due to declining ore grades and mounting geopolitical and environmental challenges. The average quality of copper ore being mined has dropped roughly 40% since the early 1990s. Because ore is less pure, it takes more time, energy, and water to extract the same amount of usable copper. The rate of new  large-scale copper discoveries has also plummeted, with few major deposits found in the last decade.", 
-                "Many of the major mining regions such as Chile, Peru, and democratic republic of congo have faced compounding issues of severe droughts, earthquakes, localized flooding, and regulatory disputes. "
+                "Because of its high energy density, fast response times, and longevity, Lithium has rapidly been replacing traditional lead-acid batteries in the past decades. Today, Lithium is a critical mineral for all types of battery storage in modern electronics and infrastructure, from electric vehicles to uninterrupted power systems in data centers.",
+                "Globally, lithium mining production is concentrated in Australia, China, and Chile. However, there is expected diversification of lithium mining in the coming decade, with countries like the US and Finland scaling up local extraction in response to concerns about geographic concentration.",
+                "While the market is supposed to be well supplied in the near term, rapidly growing demand is projected to turn market balances into deficits in the 2030s. Because it takes 5-7 years to develop a new lithium mine, expanding mining capacity fast enough to meet demands remains a key bottleneck."
             ]
         },
         "Nickel" : {
