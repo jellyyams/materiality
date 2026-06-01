@@ -65,7 +65,7 @@ export default function Frame2(props) {
               title="Cabling Infrastructure"
               data={textData.infrastructures.cabling}
             />
-            <img className="right_img2" src="/images/cables.jpg"></img>
+            <img className="right_img2" src={"/images/cables.jpg"}></img>
           </div>
         );
       case "chips":
@@ -75,7 +75,7 @@ export default function Frame2(props) {
               title="Chips Manufacturing"
               data={textData.infrastructures.chips}
             />
-            <img className="right_img2" src="/images/chips.jpg"></img>
+            <img className="right_img2" src={"/images/chips.jpg"}></img>
           </div>
         );
       default:

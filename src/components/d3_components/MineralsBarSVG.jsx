@@ -270,7 +270,7 @@ const MineralsBarSVG = (props) => {
     };
   }, [width, props.currMineral]);
 
-  return <svg id="graph" width={width} height={height} ref={ref}></svg>;
+  return <svg id="minerals_bar" width={width} height={height} ref={ref}></svg>;
 };
 
 export default MineralsBarSVG;

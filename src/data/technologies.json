@@ -28,7 +28,7 @@
             "2025": 41.15,
             "growth_rate": 1.504,
             "description": [
-               "Blockchain operates as a decentralized distributed database with data stored across multiple computers. The way blockchain computing systems are designed make it resistant to alternation and tampering, thus blockchains are often considered secure by design. The most notable and widespread use case of blockchain technology is cryptocurrencies, however proponents are also working towards use cases in supply chain management, digital identity, and healthcare. Ultimately, the hope is that blockchain technology eliminates the need for central authorities to verify and legitimize data transactions. Today, blockchain has a market size of around 41 billion usd and a CAGR of 50.4%."
+                "Blockchain operates as a decentralized distributed database with data stored across multiple computers. The way blockchain computing systems are designed make it resistant to alternation and tampering, thus blockchains are often considered secure by design. The most notable and widespread use case of blockchain technology is cryptocurrencies, however proponents are also working towards use cases in supply chain management, digital identity, and healthcare. Ultimately, the hope is that blockchain technology eliminates the need for central authorities to verify and legitimize data transactions. Today, blockchain has a market size of around 41 billion usd and a CAGR of 50.4%."
             ],
             "img_file": "server.png.webp",
             "img_class": "sticky_img_bot_right_small"
@@ -38,8 +38,8 @@
             "name": "Cloud Computing",
             "2025": 943,
             "growth_rate": 1.16,
-            "description":[
-               "Cloud computing is the delivery of computing services (such as servers, databases, analytics, and intelligence) over the internet. Although its name might lend the impression that its material footprint is negligible or irrelevant, cloud computing takes place on physical servers that require physical maintenance, monitoring, powering, and cooling. Cloud computing first entered the conversation in technology circles in the early 2000s, and today it’s a 943 billion dollar industry. Cloud computing services are considered critical digital infrastructure– every major online service from social media to e-commerce sites to gaming utilize cloud services in some form."
+            "description": [
+                "Cloud computing is the delivery of computing services (such as servers, databases, analytics, and intelligence) over the internet. Although its name might lend the impression that its material footprint is negligible or irrelevant, cloud computing takes place on physical servers that require physical maintenance, monitoring, powering, and cooling. Cloud computing first entered the conversation in technology circles in the early 2000s, and today it’s a 943 billion dollar industry. Cloud computing services are considered critical digital infrastructure– every major online service from social media to e-commerce sites to gaming utilize cloud services in some form."
             ],
             "img_file": "server.png.webp",
             "img_class": "sticky_img_bot_right_small"
@@ -50,7 +50,7 @@
             "2025": 1596,
             "growth_rate": 1.089,
             "description": [
-                "Internet of things (IoT) refers to a network of physical devices, vehicles, appliances that contain sensors, software, and network connectivity, allowing them to collect and share data. Devices such as smart speakers, smart fridges, remote controlled thermostats and security systems, etc. are all examples of IoT technologies. The data that’s collected and generated from IoT devices are stored, processed, and analyzed using cloud computing services and advanced analytics tools. Thus the material footprint of IoT technologies emerges from the individual devices themselves as well as the vast network of servers and computing infrastructure that devices are connected to.", 
+                "Internet of things (IoT) refers to a network of physical devices, vehicles, appliances that contain sensors, software, and network connectivity, allowing them to collect and share data. Devices such as smart speakers, smart fridges, remote controlled thermostats and security systems, etc. are all examples of IoT technologies. The data that’s collected and generated from IoT devices are stored, processed, and analyzed using cloud computing services and advanced analytics tools. Thus the material footprint of IoT technologies emerges from the individual devices themselves as well as the vast network of servers and computing infrastructure that devices are connected to.",
                 "Today, the IoT industry has a global market size of 1.5 trillion usd, and a compound annual growth rate of 8.9%. "
             ],
             "img_file": "echo.png",
@@ -72,7 +72,7 @@
             "name": "Drones",
             "2025": 83.8,
             "growth_rate": 1.095,
-            "description":[
+            "description": [
                 "The global drone industry is experiencing rapid expansion, with a current global market size of 84 billion usd and a compound annual growth rate of 9.5%. Drones have found a variety of use cases including in the agriculture industry (to monitor crop health and target pesticide spraying), the logistics industry (with last-mile delivery services), and, of course, the military and defence industry."
             ],
             "img_file": "drone.png",

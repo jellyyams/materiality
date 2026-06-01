@@ -234,6 +234,6 @@ const StackedLineSVG = (props) => {
       });
     });
   });
-  return <svg id="graph" width={width} height={height} ref={ref}></svg>;
+  return <svg id="stacked_graph" width={width} height={height} ref={ref}></svg>;
 };
 export default StackedLineSVG;

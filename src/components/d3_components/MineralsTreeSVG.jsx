@@ -244,7 +244,7 @@ const MineralsTreeSVG = (props) => {
     });
   }, [width, filename, height]);
 
-  return <svg id="graph" width={width} height={height} ref={ref}></svg>;
+  return <svg id="tree_graph" width={width} height={height} ref={ref}></svg>;
 };
 
 export default MineralsTreeSVG;

@@ -257,7 +257,7 @@ const EnergyChartSVG = (props) => {
     });
   }, [width]);
 
-  return <svg id="graph" width={width} height={height} ref={ref}></svg>;
+  return <svg id="energy_graph" width={width} height={height} ref={ref}></svg>;
 };
 
 export default EnergyChartSVG;
