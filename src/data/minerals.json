@@ -33,22 +33,24 @@
         "Nickel" : {
             "img_file" : "nickel.webp",
             "paragraphs": [
-                "Copper underpins all electrical infrastructure from battery storage systems to cooling systems in data centers to power grids. While demand for Copper surges, supply is projected to decrease in the coming decade due to declining ore grades and mounting geopolitical and environmental challenges. The average quality of copper ore being mined has dropped roughly 40% since the early 1990s. Because ore is less pure, it takes more time, energy, and water to extract the same amount of usable copper. The rate of new  large-scale copper discoveries has also plummeted, with few major deposits found in the last decade.", 
-                "Many of the major mining regions such as Chile, Peru, and democratic republic of congo have faced compounding issues of severe droughts, earthquakes, localized flooding, and regulatory disputes. "
+                "Nickel is an essential component in lithium-ion and Nickel-Zinc batteries, making it a key mineral for backup power systems in data centers and other technologies that rely on rechargeable batteries. It’s also used heavily for alloying to produce stainless and heat-resisting steels. In data centers, nickel is used to create high-performance and corrosion-resistant superalloys for advanced server cooling systems. Because nickel is naturally resistant to corrosion and oxidation, it helps ensure long-term hardware reliability in the high-moisture environments found in liquid cooling systems. ", 
+                "Nickel is also widely used to electroplate electronic connectors and server components. This plating helps provide a durable barrier against oxidation and improves reliability of high-frequency data transmission across server nodes. ",
+                "Globally, the top three countries producing nickel are Indonesia, the Philippines, and Russia. "
             ]
         },
         "REE" : {
             "img_file" : "cerium.png",
             "paragraphs": [
-                "Copper underpins all electrical infrastructure from battery storage systems to cooling systems in data centers to power grids. While demand for Copper surges, supply is projected to decrease in the coming decade due to declining ore grades and mounting geopolitical and environmental challenges. The average quality of copper ore being mined has dropped roughly 40% since the early 1990s. Because ore is less pure, it takes more time, energy, and water to extract the same amount of usable copper. The rate of new  large-scale copper discoveries has also plummeted, with few major deposits found in the last decade.", 
-                "Many of the major mining regions such as Chile, Peru, and democratic republic of congo have faced compounding issues of severe droughts, earthquakes, localized flooding, and regulatory disputes. "
+                "Rare earth elements include 17 metallic elements with similar chemical traits (15 lanthanides, scandium and yttrium). They’re called ‘rare’ because unlike most other minerals, they are scattered rather than gathered in despots that are easy to extract profitably.",
+                "They’re especially useful in technologies for their magnetic, glowing, and electrochemical qualities. For instance, neodymium-iron-boron magnets drive small motors in robotic limbs and drones. Lanthanum is needed to build nickel-metal hydride batteries that power AI devices. Gadolinium increases heat resistance in GPUs and TPUs. Yttrium-based superconductors tackle heat issues.",
+                "China currently leads in producing 60% of the world’s global supply. "
             ]
         },
         "Graphite" : {
             "img_file" : "graphite.png",
             "paragraphs": [
-                "Copper underpins all electrical infrastructure from battery storage systems to cooling systems in data centers to power grids. While demand for Copper surges, supply is projected to decrease in the coming decade due to declining ore grades and mounting geopolitical and environmental challenges. The average quality of copper ore being mined has dropped roughly 40% since the early 1990s. Because ore is less pure, it takes more time, energy, and water to extract the same amount of usable copper. The rate of new  large-scale copper discoveries has also plummeted, with few major deposits found in the last decade.", 
-                "Many of the major mining regions such as Chile, Peru, and democratic republic of congo have faced compounding issues of severe droughts, earthquakes, localized flooding, and regulatory disputes. "
+                "Graphite’s high electrical and thermal conductivity, stability at elevated temperatures, and chemical inertness make it a reliable and critical component for many digital and emerging technologies. Graphite is a key mineral for lithium-ion batteries, grid-scale storage systems of data centers, and thermal management components and heat-spreading materials.",
+                "Demand for graphite is expected to surge significantly in the next decade. While we have adequate global reserves, the supply chain is highly concentrated in geographically restricted. China accounts for about 70% of natural graphite mining output and controls over 90% of spherical graphite processing. Countries outside of Asia are therefore heavily dependent on imports."
             ]
         }
     }
